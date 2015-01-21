@@ -1,0 +1,25 @@
+<%= link_to 'Add new skill', new_skill_path %>
+<h1>Your skills</h1>
+<% if !@skills.empty? %>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skills.each do |skill| %>
+      <tr>
+        <td><%= skill.description %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<p>You have no skill yet, <%= link_to 'Add here', new_skill_path%></p>
+<% end %>
+

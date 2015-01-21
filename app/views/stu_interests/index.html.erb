@@ -1,0 +1,24 @@
+<h1>Listing stu_interests</h1>
+<% if !@stu_interests.empty? %>
+<%= link_to 'Add  interest', new_stu_interest_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stu_interests.each do |stu_interest| %>
+      <tr>
+        <td><%= stu_interest.description %></td>
+        <td><%= link_to 'Edit', edit_stu_interest_path(stu_interest) %></td>
+        <td><%= link_to 'Destroy', stu_interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<p>You have no interest, <%= link_to 'add  interest', new_stu_interest_path %></p>
+<% end %>

@@ -1,0 +1,29 @@
+<%= form_for(@office_photo, :html => {:multipart => true}) do |f| %>
+  <% if @office_photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@office_photo.errors.count, "error") %> prohibited this office_photo from being saved:</h2>
+
+      <ul>
+      <% @office_photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= image_tag @office_photo.images %>
+  <div class="form-group">
+      <%= f.label :company_profile_id %><br />
+      <%= f.number_field :company_profile_id %>
+  </div>
+  
+  <div class="form-group">
+      <%= f.label :images %><br />
+      <%= f.file_field :images %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

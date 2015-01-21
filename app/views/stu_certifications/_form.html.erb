@@ -1,0 +1,21 @@
+<%= form_for(@stu_certification) do |f| %>
+  <% if @stu_certification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stu_certification.errors.count, "error") %> prohibited this stu_certification from being saved:</h2>
+
+      <ul>
+      <% @stu_certification.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+   <div class="large-12 medium-12 small-12 columns">
+    <%= f.submit "Add Certification", class:"button radius large-12 small-12 medium-12" %>
+  </div>
+<% end %>

@@ -1,0 +1,63 @@
+<%= form_for(@student_profile, :html => {:multipart => true}) do |f| %>
+  <% if @student_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student_profile.errors.count, "error") %> prohibited this student_profile from being saved:</h2>
+
+      <ul>
+      <% @student_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %> 
+  </div>
+  
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :brief_summary %><br>
+    <%= f.text_area :brief_summary %>
+  </div>
+  <div class="field">
+    <%= f.label :school %><br>
+    <%= f.text_field :school %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_graduation %><br>
+    <%= f.text_field :expected_graduation %>
+  </div>
+  <div class="field">
+    <%= f.label :school_year %><br>
+    <%# f.text_field :school_year %>
+    <%= f.select :school_year, [['First Year', 'First Year'], ['Second Year', 'Second Year'], ['Third Year', 'Third Year'], ['Fourth Year', 'Fourth Year'], ['Final Year', 'Final Year'], ['N/A', 'N/A']] %>
+  </div>
+  <div class="field">
+    <%= f.label :last_completed_degree %><br>
+    <%# f.text_field :last_completed_degree %>
+    <%= f.select :last_completed_degree, [['SSCE', 'SSCE'], ['Diploma', 'Diploma'], ['BSc', 'BSc']] %>
+  </div>
+  <div class="field">
+    <%= f.label :residential_address %><br>
+    <%= f.text_field :residential_address %>
+  </div>
+  <div class="field">
+    <%= f.label :major %><br>
+    <%= f.text_field :major %>
+  </div>
+ 
+
+  <div class="row">
+      <%= f.submit class:"button radius large-12 small-12 medium-12" %>
+  </div>
+  
+<% end %>

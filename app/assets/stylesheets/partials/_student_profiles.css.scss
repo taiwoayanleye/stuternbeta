@@ -1,0 +1,245 @@
+	
+.panel{
+		margin: 0 20%;
+		@media #{$medium-only}{margin: 0px 8%;}
+		@media #{$small-only}{margin: 0px 8%;}
+
+	.row{
+		margin: 0px;
+	}
+}
+
+/* ==========================================================================
+  	student personal profile
+   ========================================================================== */
+
+.content{
+	margin: 0 5% 0 5%;
+	padding: rem-calc(0px 18px 0px 18px);
+	.top-card{
+		margin: rem-calc(20px) 0px rem-calc(20px) 0px !important;	
+
+		.profile_image > img {
+			width: 200px !important;
+		}
+
+		.profile_overview{
+			margin-left: rem-calc(10px);
+
+			.intern_name{
+					
+				p{
+					font-size: $varfontsize_hbig1;
+				}
+			}
+			.education{
+				
+				i{
+					float: left;
+					margin-right: rem-calc(4px);
+					font-size: $fontawes_h3;
+					@media #{$medium-only}{font-size: $fontawes_h4;}
+					@media #{$small-only}{font-size: $fontawes_h4;}
+				}
+
+				p{
+					font-size: $varfontsize_h4;
+					@media #{$medium-only}{font-size: $varfontsize_h5;}
+					@media #{$small-only}{font-size: $varfontsize_h5;}
+				}
+			}
+			.year_graduation{
+				i{
+					float: left;
+					margin-right: rem-calc(4px);
+					font-size: $fontawes_h3;
+					@media #{$medium-only}{font-size: $fontawes_h4;}
+					@media #{$small-only}{font-size: $fontawes_h4;}
+				}
+
+				p{
+					font-size: $varfontsize_h4;
+					@media #{$medium-only}{font-size: $varfontsize_h5;}
+					@media #{$small-only}{font-size: $varfontsize_h5;}
+				}
+			}
+
+		}
+	}
+	
+	//bottom-card styling
+	.bottom-card{
+		
+			//bio
+			.bio{
+				.bio_header{
+					background-color: white;
+				}
+			}
+			
+			//brief
+			.brief{
+				.brief_content{
+					padding: rem-calc(5px 5px 50px 5px);
+					// border: 2px solid black;
+				}
+			}
+			
+			//experience
+			.experience{
+				margin: rem-calc(30px 0px 30px 0px);
+
+				.experience_position{
+
+					a{
+						font-size: $varfontsize_h3;
+						pointer-events: none;
+	       				cursor: default;
+	       				color: black;
+					}
+				}
+
+				.experience_company{
+					a{
+						font-size: $varfontsize_h3;
+						pointer-events: none;
+	       				cursor: default;
+	       				color: black;
+					}
+				}
+
+				.experience_date{
+					a{
+						font-size: $varfontsize_h3;
+						pointer-events: none;
+	       				cursor: default;
+	       				color: black;
+					}
+				}
+				
+				.experience_description{
+					p{
+						font-size: $varfontsize_h4;
+						pointer-events: none;
+	       				cursor: default;
+					}
+				
+			}
+
+		}
+		
+		//experience space
+		.exp_space{
+			margin-bottom: rem-calc(10px);
+		}
+
+		//education
+
+	}
+}
+
+
+
+
+/* ==========================================================================
+  	search panel for student_profiles job_postings employers_profile
+   ========================================================================== */
+.search_wrapper{
+	margin: rem-calc(20px 0 20px 0);
+	padding: rem-calc(0 10px);
+
+.search_postings{
+	p{margin:0;padding:0;}
+	input{border-color: $oil; margin:0;
+	@media #{$medium-only}{margin: rem-calc(0 0 15px 0);}
+	@media #{$small-only}{margin: rem-calc(0 0 15px 0);}
+	}
+	select{@extend input;padding:0;}
+	.search_positions{
+		text-align: center;
+		margin: rem-calc(0px 10px 0 0px);
+		@media #{$medium-only}{margin: rem-calc(0px 10% 0 0%);}
+		@media #{$small-only}{margin: rem-calc(0);}
+	}
+	.search_pay{
+		@extend .search_positions;
+	}
+}
+}
+.search_button{
+	text-align: center;
+	margin: 0;
+	.button{
+		padding: rem-calc(9.5px 0);
+		margin: 0;
+	}
+// =======
+// 	margin: rem-calc(0 375% 0 375%);
+// 	@media #{$medium-only}{margin: rem-calc(0 305% 0 305%);}
+// 	@media #{$small-only}{margin: rem-calc(0% 10% 0 10%);}
+// >>>>>>> 040f14fa1fdc942a62ac0025b9a6938d190b3668
+}
+
+
+
+
+/* ==========================================================================
+  	student_profiles/index.html.erb & search.html.erb
+   ========================================================================== */
+.all_intern{
+	padding: rem-calc(20px 40px 20px 40px);
+	margin-bottom: rem-calc(30px);
+	width: 100%;
+	text-align: center;
+
+	.pro_int_listing{
+		background-color: white;
+		border: 1px solid $iron;
+		border-radius: rem-calc(3em);
+		margin: rem-calc(0% 0px 0px 0px);	
+		
+		.pro_int_image{}
+		.pro_int_g_s_wrapper{
+			margin: rem-calc(5% 0 0 0);
+			text-align: center;
+			line-height: 5px;
+			.pro_int_major{
+				font-size: $varfontsize_h3;
+				margin: 0;
+				a{
+				font-size: $varfontsize_h4;
+				color: $jumbo;
+				}
+			}
+
+			.pro_int_sch{
+				font-size: $varfontsize_h4;
+				margin: 0 0 0 0;
+				p{margin:rem-calc(0 0 10px 0);
+				}
+					a{
+				font-size: $varfontsize_h4;
+				color: $jumbo;
+				}
+
+				i{
+				padding: rem-calc(0 2% 0 0);
+				font-size: $fontawes_h3;
+				color: $jumbo;
+				}
+			}
+		}
+
+		.pro_int_n_m_wrapper{
+			border-radius: rem-calc(2em);
+			border: 3px solid $white-smoke;
+			background-color: white;
+			text-align: center;
+			.pro_int_name{font-size: $varfontsize_h4; margin: 0; color:$jumbo;}
+			}
+
+		hr{margin: 0px; padding: 0px; border-color: $jumbo;}
+		
+	}
+}
+

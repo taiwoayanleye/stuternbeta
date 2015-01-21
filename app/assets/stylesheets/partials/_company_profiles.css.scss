@@ -1,0 +1,202 @@
+
+.panel{
+		margin: 0;
+		@media #{$medium-only}{margin: 0px 2%;}
+		@media #{$small-only}{margin: 0px 2%;}
+
+	.row{
+		margin: 0;
+	}
+}
+
+/* ==========================================================================
+  	company_profiles/show.html.erb
+   ========================================================================== */
+.site-content{
+	//top-cardß	
+	.top-card{
+		.panel{margin:0 2%;}
+		margin: rem-calc(20px) 0px rem-calc(20px) 0px !important;
+		.top_header{
+			.panel{
+				background-color:$bck;
+		}
+				text-align: right;
+				border: 0px solid $bck;
+
+				.profileimage > img {
+				width: 200px !important;
+				}
+			}
+		}
+		.top_body{
+			margin: 0;
+			
+			.pics > img {
+			width: 1000px !important;
+			}
+			.vid > img {
+			width: 1000px !important;
+			}
+			.picsmargin {margin:rem-calc(5px);
+				.description{
+					font-size: $varfontsize_h1;
+					font-weight: 300;
+					margin: 0;
+				}
+			}
+			.vidmargin {margin:rem-calc(5px);}
+		.company_name{
+				background-color: $white;
+			p{
+				font-size: $varfontsize_hbig1;
+				font-weight: 100;
+				margin: 0;
+			}
+			a{
+				color: black;
+				font-size: $varfontsize_hbig3;
+				font-weight: 700;	
+			}
+		}
+		p{
+				font-size: $varfontsize_hbig1;
+				font-weight: 100;
+				margin: 0;
+			}
+		.p_words{
+			background-color: $silver;
+			margin: 20px 8px;
+			padding: 10px;
+			font-size: 12px;
+			color: black;	
+			
+			b{
+				font-size:11px;
+				display: inline-block;
+			}
+		}
+		.editbutton{
+			text-align: center;
+			color: red;
+			text-decoration: none;
+			line-height: none;
+			a{
+			text-align: center;
+			color: red;
+			text-decoration: none;
+			line-height: none;
+			}
+		}
+
+	}
+
+		}
+		
+	.mid-card{
+		.panel{margin:0 5%;}
+		.company_facts{
+			padding-left: rem-calc(50px);
+		.no_of_employees{
+			i{
+				margin-right: rem-calc(1px);
+				font-size: $fontawes_h3;
+				@media #{$medium-only}{font-size: $fontawes_h4;}
+				@media #{$small-only}{font-size: $fontawes_h4;}
+			}
+
+			.fact_a_content{
+				font-size: $varfontsize_h2;
+				@media #{$medium-only}{font-size: $varfontsize_h5;}
+				@media #{$small-only}{font-size: $varfontsize_h5;}
+			}
+		}
+		.company_type{
+			margin-left: rem-calc(10px);
+			i{
+				
+				font-size: $fontawes_h3;
+				@media #{$medium-only}{font-size: $fontawes_h4;}
+				@media #{$small-only}{font-size: $fontawes_h4;}
+			}
+
+			.fact_a_content{
+				font-size: $varfontsize_h2;
+				@media #{$medium-only}{font-size: $varfontsize_h5;}
+				@media #{$small-only}{font-size: $varfontsize_h5;}
+			}
+			}
+		}
+	}
+	
+	//bottom-card styling
+	.bottom-card{
+		.panel{margin:0 5%;}
+
+		//decsription
+		.description{
+			.description_title{
+				padding: rem-calc(5px 5px 50px 5px);
+				// border: 2px solid black;
+			}
+			.description_content{
+				padding: rem-calc(5px 5px 50px 5px);
+				// border: 2px solid black;
+			}
+		}
+
+		.contact{
+			.contact_title{
+				padding: rem-calc(5px 5px 50px 5px);
+				// border: 2px solid black;
+			}
+			.contact_title{
+				padding: rem-calc(5px 5px 50px 5px);
+				// border: 2px solid black;
+			}
+			p{
+				font-size: $varfontsize_hbig1;
+				font-weight: 100;
+				margin: 0;
+			}
+			.location{
+				font-size: $varfontsize_h1;
+				font-weight: 300;
+				margin: 0;
+			}
+		}
+		#map{}
+
+	}
+/* ==========================================================================
+  	company_profiles/index.html.erb
+   ========================================================================== */
+.content_companyprofile_index{
+	padding: rem-calc(0px 18px 0px 18px);
+
+	.company{
+
+		height: auto;
+		width: 100%;
+		padding: rem-calc(20px);
+		margin-bottom: rem-calc(30px);
+		.company_name{
+			.company_name_wrapper{
+					font-size: $varfontsize_h1;
+					font-weight: 700;
+			}
+		}
+		.company_image{
+			padding: rem-calc(15px 	5px);
+			background-color: white;
+			border-radius: 5px;
+			.hidden_name{
+				font-size: $varfontsize_h1;
+					font-weight: 300;
+			}
+
+
+		}
+	}
+}
+

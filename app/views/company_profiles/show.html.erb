@@ -1,0 +1,370 @@
+<div class="site-content">  
+
+  <!-- top card -->
+  <div class="top-card">
+
+    <div class="top_header">
+      <div class="large-12 small-12 columns">
+        <div class = 'panel'>
+          <!--  <div id='view_share_button_wrapper'>
+              <div id="view_share_button">
+                  <%= link_to "Internships".upcase, class:"button radius clickapply"%>
+              </div>
+               <div id="view_share_button">
+                  <%= link_to "Follow".upcase, class:"button radius clickview"%>
+<<<<<<< HEAD
+              </div>
+              <div id="view_share_button">
+                  <%= link_to "Share".upcase, class:"button radius clickview"%>
+              </div>
+              <div id="view_share_button">
+                  <%= link_to "Next Company".upcase, class:"button radius clickview"%>
+              </div>
+            </div> -->
+            <!--company_name-->
+            <div class="row">
+              <div class='company_name'>
+                <div class="large-12 medium-12 small-12 columns">
+                  <% if !@company_profile.company_name.nil? %>
+                  <a><%= @company_profile.company_name.upcase %></a>
+                  <% else %>
+                  <p><%= 'We are coming' %></p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              
+              <!-- profile image -->
+              <div class="large-2 medium-12 small-12 columns">
+                <div class="profileimage">
+                  <%= image_tag @company_profile.image_url(:thumb) %>
+                </div>
+              </div>
+
+              <!-- company facts -->
+              <div class="large-10 medium-12 small-12 columns">
+
+                <div class='row'>
+                  <div class="company_facts">
+
+                    <!-- no_of_employees -->
+                    <div class="large-3 medium-3 small-3 columns">
+                      <div class ='no_of_employees'>
+                        <p>Employees</p>
+                        <a class = 'fact_a_content'>
+                          <% if !@company_profile.number_of_employees.nil? %>
+                            <%= @company_profile.number_of_employees %>
+
+                      <i class ='no_of_employees'>
+                        <p>Employees</p>
+                        <a class = 'fact_a_content'>
+                          <% if !@company_profile.number_of_employees.nil? %>
+                            <p><%= @company_profile.number_of_employees %></p>
+
+                          <% else %>
+                          <i>?</i> 
+                          <% end %>
+                        </a>
+
+                      </i>
+                    </div>
+
+                    <!-- established -->
+                     <div class="large-3 medium-3 small-3 columns">
+
+                      <div class ='established'>
+                        <p>Established</p>
+                        <a class = 'fact_a_content'>
+                          <% if !@company_profile.founded.nil? %>
+                            <%= @company_profile.founded %>
+
+                      <i class ='established'>
+                        <p>Established</p>
+                        <a class = 'fact_a_content'>
+                          <% if !@company_profile.number_of_employees.nil? %>
+                            <%# @company_profile.number_of_employees %>
+
+                          <% else %>
+                          <i>?</i> 
+                          <% end %>
+                        </a>
+                      </i>
+                      </div>
+                    </div>
+                    
+
+                    <!-- company type -->
+                    <div class="large-3 medium-3 small-3 columns">
+
+                      <div class ='company_type'>
+                        <p>Sector</p>
+                        <a class = 'fact_a_content'>
+                          <% if !@company_profile.company_type.nil? %>
+                            <%= @company_profile.company_type %>
+                          <% else %>
+                            <i>?</i>
+                          <% end %>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- headquaters -->
+                    <div class="large-3 medium-3 small-3 columns">
+                      <div class ='headqauters'>
+
+                      <i class ='headqauters'>
+                        <p>Headquaters</p>
+                        <a class = 'fact_a_content'>
+                          <% if !@company_profile.location.nil? %>
+                            <%= @company_profile.location %>
+                          <% else %>
+                            <i>?</i>
+                          <% end %>
+                        </a>
+
+                      </i>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <hr>
+
+        </div>
+     </div>
+    </div>
+  
+    <div class="top_body">
+      <div class="large-12 small-12 columns">
+        <div class="panel">
+
+          <!-- nav -->
+
+          <div class= "row">
+            <div class="large-12 medium-12 small-12 columns">
+              <div id="companies_nav">
+                <%= render "companies_nav" %>
+              </div>
+            </div>
+          </div>
+
+         
+          <!--company_name-->
+          <div class="row">
+            <div class='company_name'>
+              <div class="large-12 medium-12 small-12 columns">
+                <% if !@company_profile.company_name.nil? %>
+                <p><%= 'We are ' %></p>
+                <a><%= @company_profile.company_name.upcase %></a>
+                <% else %>
+                <p><%= 'We are coming' %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <!--images-->
+          <div class= "row">
+            <div class="large-8 medium-12 small-12 columns">
+              <div class="main_pics pics picsmargin">
+
+ <!--                <% image_tag @company_profile.image.url %> -->
+                <% @office_photos.each do |p| %>
+                  <%= image_tag p.images_url%>
+                  <!-- <%= link_to "Edit", edit_office_photo_path(p) %> -->
+                <% end %>
+
+                <%= image_tag @company_profile.image_url(:thumb) %>
+              </div>
+            </div>
+
+            <div class="large-4 medium-6 small-6 columns">
+                <div class="sub_pics pics picsmargin">
+
+                  <% @office_photos.each do |p| %>
+                    <%= image_tag p.images_url%>
+                    <!-- <%= link_to "Edit", edit_office_photo_path(p) %> -->
+                  <% end %>
+                  <%= image_tag @company_profile.image_url(:thumb) %>
+
+                </div>
+            </div>
+            <div class="large-4 medium-6 small-6 columns">
+                <div class="sub_pics pics picsmargin">
+
+                  <% @office_photos.each do |p| %>
+                    <%= image_tag p.images_url%>
+                    <!-- <%= link_to "Edit", edit_office_photo_path(p) %> -->
+                  <% end %>
+
+                  <%= image_tag @company_profile.image_url(:thumb) %>
+                </div>
+            </div>
+          </div>
+          
+          <!--about company-->
+          <div class= "row">
+            <div class="large-12 medium-12 small-12 columns">
+                <div class="sub_pics pics picsmargin">
+                <% if !@company_profile.description.nil? %>
+                    <p><%= 'About ' + @company_profile.company_name %></p>
+
+                    <p class = 'description'><%= @company_profile.description %></p>
+
+                    <%= @company_profile.description %>
+                  <% else %>
+                    <i>No description has been provided</i>
+                <% end %>
+                </div>
+            </div>
+          </div>
+
+          <!--video-->
+          <div class= "row">
+            <div class="large-4 medium-4 small-4 columns">
+                <div class="sub_vid vid vidmargin">
+                  <%= image_tag @company_profile.image_url(:thumb) %>
+                </div>
+            </div>
+            <div class="large-4 medium-4 small-4 columns">
+                <div class="sub_vid vid vidmargin">
+                  <%= image_tag @company_profile.image_url(:thumb) %>
+                </div>
+            </div>
+            <div class="large-4 medium-4 small-4 columns">
+                <div class="sub_vid vid vidmargin">
+                  <%= image_tag @company_profile.image_url(:thumb) %>
+                </div>
+            </div>
+          </div>
+
+          <!--people-->
+          <div class= "row">
+
+
+            <p>What Our People says</p>
+            <div class="large-3 small-12 columns">
+              <div class="p_words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
+
+
+            <div class="large-3 small-12 columns">
+              <div class="p_words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
+
+              <div class="people's words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford</b>
+               <p>Audit Senior Assistant</p>
+
+              </div>
+            </div>
+
+            <div class="large-3 small-12 columns">
+              <div class="p_words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
+              </div>
+            </div>
+
+            <div class="large-3 small-12 columns">
+
+              <div class="p_words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b>    
+
+              </div>
+            </div>
+
+
+              </div>
+            </div>
+
+            <div class="large-3 small-12 columns">
+              <div class="people's words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford</b>
+               <p>Audit Senior Assistant</p>
+              </div>
+            </div>
+
+            <div class="large-3 small-12 columns">
+              <div class="people's words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford</b>
+               <p>Audit Senior Assistant</p>
+              </div>
+            </div>
+
+            <div class="large-3 small-12 columns">
+              <div class="people's words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford</b>
+               <p>Audit Senior Assistant</p>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="row">
+            <div class="large-12 small-12 columns">
+              <% if !@company_profile %>
+              <a class = 'editbutton'><%= link_to 'Edit', edit_company_profile_path(@company_profile) %></a>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-card">
+      <div class="large-12 small-12 columns">
+          <div class="panel">
+
+            <!-- contact -->
+            <div class="row">
+              <div class="large-12 small-12 columns">
+                <div class="contact">
+                  <% if !@company_profile.location.nil? %>
+                    <!-- Location -->
+                    <div class="large-6 small-12 columns">
+                      <p>Our Location</p>
+
+                      <p class='location'><%= @company_profile.location%></p>
+                    </div>
+
+                    <!-- Map Section -->
+                    <div class="large-12 small-12 columns">
+
+                      <%= @company_profile.location %>
+                    </div>
+
+                    <!-- Map Section -->
+                    <div class="large-6 small-12 columns">
+
+                      <div id="map">
+                          <section id="contact" class="map">
+                              <iframe padding="100px" style="border:0" width="100%" height="200px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed">
+                              </iframe>
+
+                              <small>
+                                  <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+                              </small>
+                          </section>
+                      </div>
+                    </div>
+                  <% else %>
+                    <div class="large-12 small-12 columns">
+                      <i>No location has been provided</i>
+                    </div>
+                  <% end %>
+                </div>
+              </div><hr>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,51 @@
+<%= render 'home/home' %>
+<%= render 'home/subnav' %>
+
+<section>
+	<div class="content">
+
+	<div class="content_companyprofile_index">
+	    <p id="notice"><%= notice %></p>
+		<%= paginate @company_profiles %>
+		<% @company_profiles.each do |company_profile| %>
+		<div class="large-4 medium-4 small-12 columns">
+			<div class="company">
+				
+				<!-- company_name -->
+				<div class="row">
+					<div class="small-12 medium-12 large-12 columns">
+						<div class='company_name'>
+							<i class ='company_name_wrapper'>
+								<!-- <%= company_profile.company_name %> <--></-->
+							</i>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="small-12 medium-12 large-12 columns">
+						<div class='company_image'>
+							<p class = 'hidden_name'><%= company_profile.company_name %></p>
+							<%= link_to image_tag(company_profile.image_url(:thumb)), company_profile %>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<% end %>
+	
+	<!--
+	<%= paginate @company_profiles %>
+	 <div class="row">
+		<div class="large-9 small-9 small-centered large-centered columns mor">
+			<div class= "button radius large-12 small-12 medium-12 more">
+		    	<p>MORE</p>
+		    </div>
+		</div>
+	</div>
+	-->
+
+    </div>
+    </div>
+</section>

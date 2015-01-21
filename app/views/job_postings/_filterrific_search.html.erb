@@ -1,0 +1,30 @@
+ <!-- Search filter -->
+<%= form_for @filterrific do |f| %>
+  <div>
+  	Search
+  	<%= f.text_field(
+  	  :search_query,
+      :autofocus => true
+  	) %>
+  </div>
+  <div>
+    Status
+     <%= f.select(
+      :with_position_time,
+      JobPosting.position_time,
+      # { include_blank: '- Either - '}
+    ) %>
+  </div>
+  <div>
+  	<%= link_to(
+  		'Reset filters',
+  		# reset_filterrific_jobpostings_path,
+  	) %>
+  </div>
+    <%= render_filterrific_spinner %>
+  <% end %>
+
+<!--    render(
+  	partial: 'welcome/list',
+  	locals: { products: @products }
+  )  -->

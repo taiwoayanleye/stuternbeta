@@ -1,0 +1,303 @@
+<div class="site-content">
+  <!-- top card -->
+  <div class="top-card">
+    <div class="row"> 
+      <div class="large-12 small-12 columns">
+
+        <div class="panel">
+
+          <div class="row">
+            
+            <!-- image -->         
+            <div class="large-4 small-4 columns">
+              <div class="profile_image">
+                <%= image_tag @student_profile.image_url(:thumb) %>
+              </div>
+            </div>
+            
+            
+            
+            <div class="large-8 small-8 columns">
+              <div class = 'profile_overview'>
+                <!-- Name -->
+                <div class='intern_name'>
+                  <div class="row">
+                     <div class="large-12 small-12 columns">
+                      <p><%= @student_profile.first_name %> <%= @student_profile.last_name %></p>
+                      <% if (@student_profile.first_name.nil? && @student_profile.last_name.nil?) %>
+                      <% end %>
+                     </div>
+                  </div>
+                </div>
+                
+                <!-- Education/University -->
+                <div class='education'>
+                  <div class="row">
+                    <div class="large-12 small-12 columns">
+                      <i class="fa fa-university"></i>
+                      <p><%= @student_profile.school %>
+                      <% if !(@student_profile.school.nil? && @student_profile.major.nil?) %> 
+                        <%='|'%>
+                      <% else %>
+                        <p>?</p>
+                      <% end %> 
+                        <%= @student_profile.major %></p>
+                    </div>
+                   </div>
+                 </div>
+                
+                <!-- School Year % Graduation-->
+                <div class='year_graduation'>
+                  <div class="row">
+                    <div class="large-12 small-12 columns">
+                      <i class="fa fa-graduation-cap"></i>
+                      <p><%= @student_profile.school_year %>
+                        <% if !(@student_profile.school_year.nil? && @student_profile.expected_graduation.nil?) %>
+                          <%= '-' %>
+                        <% else %>
+                          <p>?</p>
+                        <% end %> 
+                        <%= @student_profile.expected_graduation %></p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>  
+  </div>
+ 
+
+  <!-- bottom card -->
+  <div class="bottom-card">
+    <div class="row"> 
+      <div class="large-12 small-12 columns">
+        <div class="panel">
+          
+          <!-- bio_header -->
+          <div class="row">
+            <div class="large-12 small-12 columns">
+              <div class="bio">
+                <div class="bio_header"> 
+                  <% if !@student_profile.first_name.nil? %>
+                  <h3><%= @student_profile.first_name %>&acute;<%="s"%> <%= 'Bio' %></h3>
+                  <% else %>
+                  <h5><%= link_to "Edit profile", edit_student_profile_path %></h5>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          
+
+          <!-- brief -->
+         
+          <div class="row">
+            <div class="large-12 small-12 columns">
+              <div class = "brief">
+                  <!-- brief_title -->
+                  <div class ="brief_title">
+                    <p>BRIEF SUMMARY</p>
+                  </div>
+                  <!-- brief_content -->
+                  <% if !@student_profile.brief_summary.nil? %>
+                    <div class="brief_content">
+                      <%= @student_profile.brief_summary %>
+                    </div>
+                  <% else %>
+                    <p>?</p>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+          
+          <!-- experience -->
+          <div class="row">
+            <div class="large-12 small-12 columns">
+              <div class = "experience">
+                <!-- child1: experience_title -->
+                <div class ="experience_title">
+                  <p>EXPERIENCE</p>
+                </div>
+                <!-- child2: experience_content -->
+                  <div class="experience_content">
+                    <div id="intern_experience">
+                      <% if !@student_profile.stu_work_experiences.empty? %>
+                        <% @work_histories.each do |work_history| %>
+                        <!-- subheader: position | company | date -->
+                        <div class ="large-12 small-12 columns">
+                          <!-- experience_subheader -->
+                          <div class = 'experience_subheader'>
+                            <!-- experience_position -->
+                            <i class="fa fa-briefcase"></i>
+                            <span class = 'experience_position'><a><%= work_history.position %></a></span>
+                            <%= '|' %>
+                            <!-- experience_company -->
+                            <i class="fa fa-users"></i>
+                            <span class = 'experience_company'><a><%= work_history.company %></a></span>
+                            <%= '|' %>
+                            <!-- experience_date -->
+                            <i class="fa fa-calendar"></i>
+                            <span class = 'experience_date'><a><%= work_history.start_date %> | <%= work_history.end_date %></a></span>
+                          </div>
+                        </div>
+                        <!-- experience_description -->
+                        <div class = 'experience_description'>
+                          <p><%= work_history.description %></p>
+                        </div>
+                        <div class = "exp_space"></div>
+                        <% end %>
+                    <!-- dir="rtl"v> -->
+                      <% else %>
+                        <p>No work experiences have been added yet!</p>
+                        <%= link_to 'Add experience', new_stu_work_experience_path %>
+                      <% end %>
+                    </div>
+                  </div>
+            </div><hr>
+          </div>
+
+          <!-- skills | interest | certification -->
+          <div class="row">
+            <!-- skills -->
+            <div class="large-4 small-12 columns">
+              <div class="skills">
+                <!-- skills_title -->
+                <div class="skills_title">
+                  <p>Skills</p>
+                </div>
+                <!-- skills_content -->
+                <div class="skills_content">
+                  <% #if current_user.id == @student_profile.user_id.to_i %>
+                  <% if !@student_profile.skills.empty? %>
+                    <% @skills.each do |skill| %>
+                      <a role="button" class= "button tiny disabled"><%= skill.description %></a>
+                    <% end %>
+                    <% else %>
+                    <p>No skills have been added yet!</p>
+                    <br>
+                    <%= link_to 'Add skill', new_skill_path %>
+                    <% end %>
+                  <%# end %>
+                </div>
+              </div>
+            </div>
+          
+            <!-- interest -->
+            <div class="large-4 small-12 columns">
+              <div class="interest">
+                <!-- interest_title -->
+                <div class="interest_title">
+                  <p>Interest</p>
+                </div>
+                
+                <!-- interest_content -->
+                <div class="interest_content">
+                  <%# if current_user.id == @student_profile.user_id.to_i %>
+                  <% if !@student_profile.stu_interests.empty? %>
+                    <% @interests.each do |interest| %>
+                      <a role="button" class= "button tiny disabled"><%= interest.description %></a>
+                    <% end %>
+                    <% else %>
+                      <p>No skills have been added yet!</p>
+                      <br>
+                      <%= link_to 'Add interest', new_stu_interest_path %>
+                    <% end %>
+                  <%# end %>
+                </div>
+              </div>
+            </div>
+
+            <!-- certification -->
+            <div class="large-4 small-12 columns">
+              <div class="certification">
+                <!-- certification_title -->
+                <div class="certification_title">
+                  <p>Certification</p>
+                </div>
+                <!-- certification_content -->
+                <div class="certification_content">
+                  <%# if current_user.id == @student_profile.user_id.to_i %>
+                  <% if !@student_profile.stu_certifications.empty? %>
+                    <% @certifications.each do |certification| %>
+                      <a role="button" class= "button tiny disabled"><%= certification.description %></a>
+                    <% end %>
+                    <% else %>  
+                      <p>No certifications have been added yet!</p>
+                      <%= link_to 'Add certification', new_stu_certification_path %>
+                  <%# end %>
+                  <% end %>
+                </div>
+              </div>
+            </div><hr>
+          </div>
+
+          <!-- reference -->
+          <div class="row"> 
+            <div class="large-12 small-12 columns">
+              <div class="Reference">
+                <p>Reference</p>
+                <%# if current_user.id == @student_profile.user_id.to_i %>
+                <% if !@student_profile.stu_references.empty? %>
+                <% @references.each do |reference| %>
+                  <table>
+                  <td><%= reference.name %></td>
+                  <td><%= reference.relationship %></td>
+                  <td><%= reference.phone %></td>
+                  <td><%= mail_to reference.email %></td>
+                  </table>
+                <% end %>
+                <% else %>
+                <p>No references have been added yet!</p>
+                <br>
+                <%= link_to 'Add reference', new_stu_reference_path %>               
+                <% end %>
+                <%# end %>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <!-- personal -->
+          <div class="row">
+            <div class="large-12 small-12 columns">
+              <div class="personal">
+                <!-- certification_title -->
+                <div class="personal_title">
+                  <h3>Personal information</h3>
+                </div>
+                <!-- personal_information -->
+                <div class="personal_content">
+                    <table>
+                      <tr>
+                        <th>Last completed degree:</th>
+                        <% if !@student_profile.last_completed_degree.nil? %></td>
+                          <td><%= @student_profile.last_completed_degree %></td>
+                        <% else %>
+                         <td>?</td>
+                        <% end %>
+                      </tr>
+                      <tr>
+                        <th>Residential address:</th>
+                        <% if !@student_profile.residential_address.nil? %>
+                          <td><%= @student_profile.residential_address %></td>
+                        <% else %>
+                          <td>?</td>
+                        <% end %>
+                      </tr>
+                    </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div> 
+  </div>
+</div> 

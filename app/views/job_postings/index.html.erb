@@ -1,0 +1,89 @@
+<section>
+  <div class="content">
+      <% @job_postings.each do |job_posting| %>
+
+      <div class="large-4 medium-4 small-12 columns">
+        <div class = 'int'>
+
+          <!--r1 company name | company type _ top bar-->
+          <div class="row">
+            <div class = "post_top">
+              <div class="large-12 medium-12 small-12 columns">
+                <!-- company_type and location -->
+                <div id = 'aside' class="company_type">
+                  <i class="fa fa-tags"></i><a><%= "#{job_posting.company_profile.company_type}" %></a>
+                </div>
+                <!-- company name -->
+                <div d = 'figure' class="company_name">
+                  <p><%= "#{job_posting.company_profile.company_name}" %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!--r2 company image-->
+          <div class = 'row'>
+            <div class="large-12 small-12 columns">
+              <div id = 'figure' class="image_wrapper">
+                <div class="company_image">
+                  <%= link_to (image_tag CompanyProfile.find(job_posting.company_profile.id).image_url(:thumb)), company_profile_path(job_posting.company_profile.id) %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+            <div class = 'row'>
+              <div class="large-12 small-12 columns">
+                <div class ='page_down'>
+
+                  <!--int positions-->
+                  <div class="int_position">
+                    <a><%= job_posting.position %></a>
+                  </div>
+
+                  <div id = 'aside' class="int_dur_paid">
+                  <!--duration of position-->
+                    <i id = 'aside' class="int_dur">
+                      <i class="fa fa-calendar"></i><a><%= "#{job_posting.company_profile.number_of_employees}" %></a>
+                    </i>
+                     <!-- Paid or Unpaid -->
+                    <i id='aside' class="int_paid">
+                      <i class="fa fa-usd"></i><a><%= "#{job_posting.job_paid}" %></a>
+                    </i>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          
+
+        </div>
+      </div>
+
+      <% end %>
+
+<!--       <div class="row">
+        <div class="large-9 small-9 small-centered large-centered columns">
+          <div class= "button radius large-12 small-12 medium-12 more">
+            <p>MORE</p>
+          </div>
+        </div>
+      </div> -->
+    
+  </div>
+</section>
+
+<!--
+Job Posted Box:
+COMPANY: Company Name, Company Picture/Logo
+int: Duration, Location, Industry, Brief Description, int Position
+INTERN: View, Save, Share(Facebook, LinkedIn, Twitter)
+
+Job Posted Content
+COMPANY: Company Name, Company Picture, Company Location, Company Size, Industry
+int: Description, Requirement, ResponsibilityFull int Description,
+INTERN: Apply, Save, Follow Company, Share(Facebook, LinkedIn, Twitter)
+-->
+

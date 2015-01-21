@@ -1,0 +1,97 @@
+<%= render 'home/home' %>
+<%= render 'home/subnav' %>
+
+<section>
+  <div class="content">
+      <div>
+      <%= render 'search_tab' %>
+<!--        render 'filterrific_search'  -->
+ 
+      </div>
+      <% if !@return.nil? && !@return.empty? %>
+      <% @return.each do |job_posting| %>
+      <% com_prof = CompanyProfile.find(job_posting.company_profile_id) %>
+
+      <div class="large-4 medium-4 small-12 columns">
+        <div class = 'int'>
+
+          <!--r1 company name | company type _ top bar-->
+          <div class="row">
+            <div class = "post_top">
+              <div class="large-12 medium-12 small-12 columns">
+                <!-- company name -->
+                <div id = 'figure' class="company_name">
+                  <p><%= "#{job_posting.company_profile.company_name}" %></p>
+                  <span><i class="fa fa-tags"></i><a><%= "#{job_posting.company_profile.company_type}" %></a></span>
+                </div> 
+              </div>
+            </div>
+          </div>
+          
+          <!--r2 company image-->
+          <div class = 'row'>
+            <div class="large-12 small-12 columns">
+              <div class="image_wrapper">
+                <%= (image_tag CompanyProfile.find(job_posting.company_profile.id).image_url(:thumb)) %>
+                <!--<%= link_to (image_tag CompanyProfile.find(job_posting.company_profile.id).image_url(:thumb)), job_posting_path(job_posting.id) %>-->
+              </div>
+            </div>
+          </div>
+
+          
+
+            <div class = 'row'>
+              <div class="large-12 small-12 columns">
+                <div class ='page_down'>
+
+                  <!--int positions-->
+                  <div class="int_position">
+                    <a><%= job_posting.position.upcase %></a>
+                  </div>
+
+                  <div id = 'aside' class="int_dur_paid">
+                  <!--duration of position-->
+<!--                     <i id = 'aside' class="int_dur">
+                      <i class="fa fa-calendar"></i><a><% "#{job_posting.company_profile.number_of_employees}" %></a>
+                    </i> -->
+                     <!-- Paid or Unpaid -->
+                    <i id='aside' class="int_paid">
+                      <i class="fa fa-map-marker"</i><a><%= "#{job_posting.company_profile.location}" %></a>
+                    </i>
+                  </div>
+                  <div id='view_share_button_wrapper'>
+                    <div id="view_share_button">
+                        <%= link_to "Apply".upcase, job_posting_path(job_posting.id), class:"button radius clickapply"%>
+
+                     </div>
+                      <div id="view_share_button">
+
+                        <%= link_to "share".upcase, job_posting_path(job_posting.id), class:"button radius clickview"%>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <% end %>
+        
+        
+      <% else %>
+        <h3>No results.</h3>
+      <% end %>
+        <%= paginate @return %>
+
+<!--       <div class="row">
+        <div class="large-9 small-9 small-centered large-centered columns">
+          <div class= "button radius large-12 small-12 medium-12 more">
+            <p>MORE</p>
+          </div>
+        </div>
+      </div> -->
+    
+  </div>
+</section>

@@ -1,0 +1,83 @@
+<%= form_for(@company_profile, :html => {:multipart => true}) do |f| %>
+  <% if @company_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company_profile.errors.count, "error") %> prohibited this company_profile from being saved:</h2>
+
+      <ul>
+      <% @company_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+  <!-- Profile image -->
+    <%= f.label :image %>
+    <%= image_tag(@company_profile.image_url) if@company_profile.image? %>
+    <%= f.file_field :image, class: "form-control" %>
+    <% f.text_field :remote_image_url %>
+    <%= f.hidden_field :image_cache %>
+
+    <!--   images[] returned to the album as an array. We use file_field_tag since images is not @album's attribute -->
+<!--      image_tag(@company_profile.office_photos.images_url) %> -->
+<!--      file_field_tag "images[]", type: :file, multiple: true %> -->
+  </div>
+  
+  <%= f.fields_for :office_photos do |p| %>
+    <div class="field">
+      <%= p.label :images %><br>
+      <%= p.file_field :images, :multiple => true, name: "office_photos[images][]" %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </div>
+<!--   <div class="field">
+    <%# f.label :email %><br>
+    <%# f.text_field :email %>
+  </div> -->
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :company_type %><br>
+    <%= f.text_field :company_type %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_employees %><br>
+    <%= f.number_field :number_of_employees %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :founded %><br>
+    <%= f.number_field :founded %>
+  </div>
+  <div class="field">
+    <%= f.label :reg_code %><br>
+    <%= f.text_field :reg_code %>
+  </div>
+
+  <% if admin? %>
+    <div class="field">
+      <%= f.label :verified %><br>
+      <%= f.check_box :verified %>
+    </div>
+  <% end %>
+
+  <div class="large-12 medium-12 small-12 columns">
+  <a><%= submit_tag 'Save' , class:"button radius large-12 small-12 medium-12" %></a>
+  </div>
+
+<% end %>
+
