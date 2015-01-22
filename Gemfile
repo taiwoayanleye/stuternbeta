@@ -41,7 +41,9 @@ gem 'mandrill_mailer'
 #Blogging
 gem 'monologue'
 # Search
-gem 'filterrific'	
+gem 'filterrific'
+# Simple Form
+gem 'simple_form'	
 
 group :doc do 
 	gem 'sdoc', '~> 0.4.0'

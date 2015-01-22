@@ -7,14 +7,30 @@
         	<div class="welcome">
 				<div class="row">
 					<div class="large-12 medium-12 small-12 columns">
-			        	<h2> Intern Search</h2>
+
+			        	<h2>Search Talent</h2>
 			        </div>
 		         </div>
 	        </div>
 	    </div>
 		
-		<!--  -->
-		<%= form_for @search do |f| %>
+		<%= simple_form_for @search do |f| %>
+			<div class="field">
+				<%= f.input :keywords, placeholder: 'KEYWORDS', label: false %><br />
+			</div>
+			<div class="field">
+			    <%= f.input :school_year, :as => :check_boxes, :collection => [['FIRST', :FIRST_YEAR]], :checked => [:JPN], :include_hidden => false, placeholder: "SCHOOL YEAR", label: false %><br />
+<!-- 		    	<% f.collection_select :school_year, StudentProfile.order(:school_year), :id, :school_year, :include_blank => true %> -->
+			</div>
+			<div class="field">
+				<%= f.input :major %><br />
+		    	<% f.collection_select :major, StudentProfile.order(:major), :id, :major, :include_blank => true %>
+			</div>
+			<div>
+				<%= f.input :expected_graduation %><br />
+				<% f.collection_select :expected_graduation, StudentProfile.order(:expected_graduation), :id, :expected_graduation, :include_blank => true %>
+			</div>
+
 			
 			<div class="row">
 				<div class="searchone">
