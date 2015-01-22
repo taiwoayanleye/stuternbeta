@@ -1,17 +1,38 @@
-<h1>Search</h1>
+<div class="site-content">
+  <div class="row" style="max-width: 30em;">
+    <div class="all">
 
-<%= form_for @search do |f| %>
-	<div class="field">
-		<%= f.label :keywords %><br />
-	    <%= f.text_field :keywords %>
+    	<div class="large-12 small-12 columns">
+        	<div class="welcome">
+				<div class="row">
+					<div class="large-12 medium-12 small-12 columns">
+			        	<h2>Edit Profile</h2>
+			        </div><hr>
+		         </div>
+	        </div>
+	    </div>
+
+		<%= form_for @search do |f| %>
+			<div class="field">
+				<%= f.label :keywords %><br />
+			    <%= f.text_field :keywords %>
+			</div>
+			<div class="field">
+			    <%= f.label :school_year %><br />
+		    	<%= f.collection_select :school_year, StudentProfile.order(:school_year), :id, :school_year, :include_blank => true %>
+			</div>
+			<div class="field">
+				<%= f.label :major %><br />
+		    	<%= f.collection_select :major, StudentProfile.order(:major), :id, :major, :include_blank => true %>
+			</div>
+			
+			<div class="large-12 medium-12 small-12 columns">
+  			<a><%= submit_tag 'Search' , class:"button radius large-12 small-12 medium-12" %></a>
+  			</div>
+		<% end %>
+
+
+		</div>
 	</div>
-	<div class="field">
-	    <%= f.label :school_year %><br />
-    	<%= f.collection_select :school_year, StudentProfile.order(:school_year), :id, :school_year, :include_blank => true %>
-	</div>
-	<div class="field">
-		<%= f.label :major %><br />
-    	<%= f.collection_select :major, StudentProfile.order(:major), :id, :major, :include_blank => true %>
-	</div>
-	<div class="actions"><%= f.submit "Search" %></div>
-<% end %>
+</div>
+
