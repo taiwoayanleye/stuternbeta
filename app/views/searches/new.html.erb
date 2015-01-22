@@ -16,12 +16,8 @@
 		
 		<%= simple_form_for @search do |f| %>
 			<div class="field">
-				<%= f.input :keywords
-				# , placeholder: 'KEYWORDS', label: false 
-				%><br />
-			</div>
-			<div class="field">
-			    <%= f.input :school_year
+				<% @years = ['Year', 'First Year', 'Second Year', 'Third Year', 'Fourth Year', 'Final Year', 'N/A'] %>
+			    <%= f.input :school_year, collection: @years, as: :radio_buttons
 			    # , :collection => StudentProfile.order(:school_year), placeholder: "SCHOOL YEAR", label: false, :include_blank => false 
 			    %><br />
 <!-- 		    	<% f.collection_select :school_year, StudentProfile.order(:school_year), :id, :school_year, :include_blank => true %> -->
