@@ -11,49 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20141218181123) do
-=======
-<<<<<<< HEAD
-=======
->>>>>>> kehinde
-ActiveRecord::Schema.define(version: 20141210213946) do
-=======
-ActiveRecord::Schema.define(version: 20141206133017) do
->>>>>>> 3662c3d6e203f5fe403e5c4d62a1e7f1e875baec
-<<<<<<< HEAD
->>>>>>> d2af34cda09616dfa7778396fba688dfed10d78f
-=======
-ActiveRecord::Schema.define(version: 20141206133017) do
->>>>>>> 040f14fa1fdc942a62ac0025b9a6938d190b3668
+ActiveRecord::Schema.define(version: 20150121224409) do
 
-# Could not dump table "company_profiles" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "job_applications", force: true do |t|
+  create_table "company_profiles", force: true do |t|
+    t.string   "company_name"
+    t.text     "description"
+    t.string   "company_type"
+    t.integer  "number_of_employees"
+    t.string   "website"
+    t.string   "location"
+    t.string   "reg_code"
+    t.boolean  "verified"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
     t.string   "user_id"
     t.integer  "founded"
-  end
-=======
-
-# Could not dump table "company_profiles" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
->>>>>>> kehinde
-
-  create_table "job_applications", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-=======
->>>>>>> d2af34cda09616dfa7778396fba688dfed10d78f
-    t.integer  "company_profile_id"
-    t.integer  "student_profile_id"
-    t.integer  "job_posting_id"
-    t.string   "cover_letter"
   end
 
   create_table "job_applications", force: true do |t|
@@ -116,8 +89,6 @@ ActiveRecord::Schema.define(version: 20141206133017) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   create_table "office_photos", force: true do |t|
     t.integer  "company_profile_id"
     t.string   "images"
@@ -125,10 +96,6 @@ ActiveRecord::Schema.define(version: 20141206133017) do
     t.datetime "updated_at"
   end
 
-=======
->>>>>>> d2af34cda09616dfa7778396fba688dfed10d78f
-=======
->>>>>>> 040f14fa1fdc942a62ac0025b9a6938d190b3668
   create_table "saved_job_postings", force: true do |t|
     t.string   "position_text"
     t.string   "description_text"
@@ -146,6 +113,14 @@ ActiveRecord::Schema.define(version: 20141206133017) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_profile_id"
+  end
+
+  create_table "searches", force: true do |t|
+    t.string   "keywords"
+    t.integer  "school_year"
+    t.integer  "major"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "skills", force: true do |t|

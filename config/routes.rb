@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :saved_job_postings
 
+  resources :searches
+
   #Website root page
   # root 'blog#index'
   root 'job_postings#search'

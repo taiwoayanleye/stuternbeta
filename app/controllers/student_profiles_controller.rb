@@ -9,85 +9,86 @@ class StudentProfilesController < ApplicationController
   # GET /student_profiles
   # GET /student_profiles.json
   def index
-    @student_profiles = StudentProfile.all
+    @student_profiles = StudentProfile.search(params[:search])
+    # @student_profiles = StudentProfile.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @student_profiles }
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @student_profiles }
     end
   end
 
-  def search
-    @return = []
-    @years = ['Year', 'First Year', 'Second Year', 'Third Year', 'Fourth Year', 'Final Year', 'N/A']
+  # def search
+  #   @return = []
+  #   @years = ['Year', 'First Year', 'Second Year', 'Third Year', 'Fourth Year', 'Final Year', 'N/A']
 
-    @student_profiles_all = StudentProfile.all
-    # @saved = SavedStudentProfile.find_all_by_company_profile_id(current_user.profileable_id)
-    @saved = SavedStudentProfile.where(company_profile_id: current_user.profileable_id)
+  #   @student_profiles_all = StudentProfile.all
+  #   # @saved = SavedStudentProfile.find_all_by_company_profile_id(current_user.profileable_id)
+  #   @saved = SavedStudentProfile.where(company_profile_id: current_user.profileable_id)
 
-    if params[:save_search]
-      @saved_student_profile = SavedStudentProfile.new
-      @saved_student_profile.company_profile_id = current_user.profileable_id
-      @saved_student_profile.school_text = params[:school_text]
-      @saved_student_profile.year_text = params[:year_text]
-      @saved_student_profile.skill_text = params[:skill_text]
+  #   if params[:save_search]
+  #     @saved_student_profile = SavedStudentProfile.new
+  #     @saved_student_profile.company_profile_id = current_user.profileable_id
+  #     @saved_student_profile.school_text = params[:school_text]
+  #     @saved_student_profile.year_text = params[:year_text]
+  #     @saved_student_profile.skill_text = params[:skill_text]
 
-      respond_to do |format|
-        if @saved_student_profile.save
-          format.html { redirect_to :back, notice: 'Saved student profile was successfully created.' }
-          format.json { render json: @saved_student_profile, status: :created, location: @saved_student_profile }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @saved_student_profile.errors, status: :unprocessable_entity }
-        end
-      end
-    end
+  #     respond_to do |format|
+  #       if @saved_student_profile.save
+  #         format.html { redirect_to :back, notice: 'Saved student profile was successfully created.' }
+  #         format.json { render json: @saved_student_profile, status: :created, location: @saved_student_profile }
+  #       else
+  #         format.html { render action: "new" }
+  #         format.json { render json: @saved_student_profile.errors, status: :unprocessable_entity }
+  #       end
+  #     end
+  #   end
 
-    if params[:school_text]
-      if params[:school_text] != "" and params[:year_text] != "" and params[:skill_text] != ""
-        match_term1 = params[:school_text]
-        match_term2 = params[:year_text]
-        match_term3 = params[:skill_text]
-        @student_profiles = StudentProfile.find_by_sql("SELECT * FROM Student_Profiles sp INNER JOIN skills s ON  sp.id = s.student_profile_id WHERE s.description LIKE '%" +
-                                                           match_term3 + "%' AND sp.school LIKE '%" + match_term1 + "%' AND sp.school_year LIKE '%" + match_term2 + "%'" )
-      elsif params[:school_text] != "" and params[:skill_text] != ""
-        match_term1 =  params[:school_text]
-        match_term2 =  params[:skill_text]
-        @student_profiles = StudentProfile.find_by_sql("SELECT * FROM Student_Profiles sp INNER JOIN skills s ON  sp.id = s.student_profile_id WHERE s.description LIKE '%" +
-                                                           match_term2 + "%' AND sp.School LIKE '%" + match_term1 + "%'")
-      elsif params[:year_text] != "" and params[:skill_text] != ""
-        match_term1 =  params[:year_text]
-        match_term2 =  params[:skill_text]
-        @student_profiles = StudentProfile.find_by_sql("SELECT * FROM Student_Profiles sp INNER JOIN skills s ON  sp.id = s.student_profile_id WHERE s.description LIKE '%" +
-                                                           match_term2 + "%' AND sp.school_year LIKE '%" + match_term1 + "%'")
-      elsif params[:year_text] != "" and params[:school_text] != ""
-        match_term1 = "%" + params[:year_text] + "%"
-        match_term2 = "%" + params[:school_text] + "%"
-        @student_profiles = StudentProfile.where("School_year LIKE ? AND School LIKE ?", match_term1, match_term2)
-      elsif params[:year_text] != ""
-        match_term = "%" + params[:year_text] + "%"
-        @student_profiles = StudentProfile.where("School_year LIKE ?", match_term)
-      elsif params[:school_text] != ""
-        match_term = "%" + params[:school_text] + "%"
-        @student_profiles = StudentProfile.where("School LIKE ?", match_term)
-      elsif params[:skill_text] != ""
-        match_term1 = params[:skill_text]
-        @student_profiles = StudentProfile.find_by_sql("SELECT * FROM Student_Profiles sp INNER JOIN skills s ON  sp.id = s.student_profile_id WHERE s.description LIKE '%" + match_term1 + "%'")
-      end
+  #   if params[:school_text]
+  #     if params[:school_text] != "" and params[:year_text] != "" and params[:skill_text] != ""
+  #       match_term1 = params[:school_text]
+  #       match_term2 = params[:year_text]
+  #       match_term3 = params[:skill_text]
+  #       @student_profiles = StudentProfile.find_by_sql("SELECT * FROM Student_Profiles sp INNER JOIN skills s ON  sp.id = s.student_profile_id WHERE s.description LIKE '%" +
+  #                                                          match_term3 + "%' AND sp.school LIKE '%" + match_term1 + "%' AND sp.school_year LIKE '%" + match_term2 + "%'" )
+  #     elsif params[:school_text] != "" and params[:skill_text] != ""
+  #       match_term1 =  params[:school_text]
+  #       match_term2 =  params[:skill_text]
+  #       @student_profiles = StudentProfile.find_by_sql("SELECT * FROM Student_Profiles sp INNER JOIN skills s ON  sp.id = s.student_profile_id WHERE s.description LIKE '%" +
+  #                                                          match_term2 + "%' AND sp.School LIKE '%" + match_term1 + "%'")
+  #     elsif params[:year_text] != "" and params[:skill_text] != ""
+  #       match_term1 =  params[:year_text]
+  #       match_term2 =  params[:skill_text]
+  #       @student_profiles = StudentProfile.find_by_sql("SELECT * FROM Student_Profiles sp INNER JOIN skills s ON  sp.id = s.student_profile_id WHERE s.description LIKE '%" +
+  #                                                          match_term2 + "%' AND sp.school_year LIKE '%" + match_term1 + "%'")
+  #     elsif params[:year_text] != "" and params[:school_text] != ""
+  #       match_term1 = "%" + params[:year_text] + "%"
+  #       match_term2 = "%" + params[:school_text] + "%"
+  #       @student_profiles = StudentProfile.where("School_year LIKE ? AND School LIKE ?", match_term1, match_term2)
+  #     elsif params[:year_text] != ""
+  #       match_term = "%" + params[:year_text] + "%"
+  #       @student_profiles = StudentProfile.where("School_year LIKE ?", match_term)
+  #     elsif params[:school_text] != ""
+  #       match_term = "%" + params[:school_text] + "%"
+  #       @student_profiles = StudentProfile.where("School LIKE ?", match_term)
+  #     elsif params[:skill_text] != ""
+  #       match_term1 = params[:skill_text]
+  #       @student_profiles = StudentProfile.find_by_sql("SELECT * FROM Student_Profiles sp INNER JOIN skills s ON  sp.id = s.student_profile_id WHERE s.description LIKE '%" + match_term1 + "%'")
+  #     end
 
-      if params[:culture] != ''
-        @return = @student_profiles.page(params[:page])
-      end
-    else
-      #when the search page is initially visited, display all interns
-      @return = @student_profiles_all.page(params[:page])
-    end
-    @school_text = params[:school_text]
-    @year_text = params[:year_text]
-    @skill_text = params[:skill_text]
-    @culture = params[:culture]
+  #     if params[:culture] != ''
+  #       @return = @student_profiles.page(params[:page])
+  #     end
+  #   else
+  #     #when the search page is initially visited, display all interns
+  #     @return = @student_profiles_all.page(params[:page])
+  #   end
+  #   @school_text = params[:school_text]
+  #   @year_text = params[:year_text]
+  #   @skill_text = params[:skill_text]
+  #   @culture = params[:culture]
 
-  end
+  # end
 
   # GET /student_profiles/1
   # GET /student_profiles/1.json
@@ -100,9 +101,9 @@ class StudentProfilesController < ApplicationController
     end
     
     # @student_profile = current_user.profile
-    @student_profile =  StudentProfile.where(user_id: params[:id]).first
+    # @student_profile =  StudentProfile.where(user_id: params[:id]).first
     # @student_profile = current_user.profile
-    @student_profile =  StudentProfile.where(user_id: params[:id]).first
+    # @student_profile =  StudentProfile.where(user_id: params[:id]).first
     @skills = @student_profile.skills
     @work_histories = @student_profile.stu_work_experiences
     @references = @student_profile.stu_references
@@ -164,4 +165,3 @@ class StudentProfilesController < ApplicationController
         end
       end
     end
-end
