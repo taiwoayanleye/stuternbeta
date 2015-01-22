@@ -25,7 +25,7 @@
 <!-- 		    	<% f.collection_select :major, StudentProfile.order(:major), :id, :major, :include_blank => true %> -->
 			</div>
 			<div>
-				<%= f.input :expected_graduation
+				<%= f.input :expected_graduation, collection: 2015..2050 
 				# , :collection => StudentProfile.order(:expected_graduation), :include_blank => true, placeholder: "GRAD", laebl: false 
 				%><br />
 <!-- 				<% f.collection_select :expected_graduation, StudentProfile.order(:expected_graduation), :id, :expected_graduation, :include_blank => true %> -->
