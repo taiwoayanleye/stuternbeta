@@ -7,7 +7,7 @@
       <div class="welcome">
         <div class="row">
 
-          <h2>Sign in</h2></div><hr>
+          <h2>Hello. Sign in.</h2></div><hr>
 
       </div>
     </div>
@@ -16,14 +16,14 @@
   
     <!--email-->
     <div class="row">
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true %>
+          <!-- <%= f.label :email %> -->
+          <%= f.email_field :email, autofocus: true, :placeholder => "Email" %>
     </div>
 
     <!--password-->
     <div class="row">
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "off" %>
+          <!-- <%= f.label :password %> -->
+          <%= f.password_field :password, autocomplete: "off", :placeholder => "Password"%>
     </div>
   
     <!--button-->

@@ -150,7 +150,7 @@
 
 .search_postings{
 	p{margin:0;padding:0;}
-	input{border-color: $oil; margin:0;
+	input{border-color: $base; margin:0;
 	@media #{$medium-only}{margin: rem-calc(0 0 15px 0);}
 	@media #{$small-only}{margin: rem-calc(0 0 15px 0);}
 	}

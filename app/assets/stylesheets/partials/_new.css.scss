@@ -27,5 +27,10 @@ h2{
 	color:red;
 }
 .row{
-	input{border-color: $oil;}
+	input{
+		
+		border-color: $base;
+		height: rem-calc(45px);
+		border-radius: (3px);
+	}
 }
