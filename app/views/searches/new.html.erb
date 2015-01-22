@@ -12,22 +12,21 @@
 	        </div>
 	    </div>
 
-		<%= form_for @search do |f| %>
+		<%= simple_form_for @search do |f| %>
 			<div class="field">
-				<%= f.label :keywords %><br />
-			    <%= f.text_field :keywords %>
+				<%= f.input :keywords, placeholder: 'KEYWORDS', label: false %><br />
 			</div>
 			<div class="field">
-			    <%= f.label :school_year %><br />
-		    	<%= f.collection_select :school_year, StudentProfile.order(:school_year), :id, :school_year, :include_blank => true %>
+			    <%= f.input :school_year, :collection => school_year, placeholder: "SCHOOL YEAR", label: false %><br />
+<!-- 		    	<% f.collection_select :school_year, StudentProfile.order(:school_year), :id, :school_year, :include_blank => true %> -->
 			</div>
 			<div class="field">
-				<%= f.label :major %><br />
-		    	<%= f.collection_select :major, StudentProfile.order(:major), :id, :major, :include_blank => true %>
+				<%= f.input :major %><br />
+		    	<% f.collection_select :major, StudentProfile.order(:major), :id, :major, :include_blank => true %>
 			</div>
 			<div>
-				<%= f.label :expected_graduation %><br />
-				<%= f.collection_select :expected_graduation, StudentProfile.order(:expected_graduation), :id, :expected_graduation, :include_blank => true %>
+				<%= f.input :expected_graduation %><br />
+				<% f.collection_select :expected_graduation, StudentProfile.order(:expected_graduation), :id, :expected_graduation, :include_blank => true %>
 			</div>
 			
 			<div class="large-12 medium-12 small-12 columns">
