@@ -6,7 +6,7 @@
         	<div class="welcome">
 				<div class="row">
 					<div class="large-12 medium-12 small-12 columns">
-			        	<h2>Edit Profile</h2>
+			        	<h2>Search Talent</h2>
 			        </div><hr>
 		         </div>
 	        </div>
@@ -24,6 +24,10 @@
 			<div class="field">
 				<%= f.label :major %><br />
 		    	<%= f.collection_select :major, StudentProfile.order(:major), :id, :major, :include_blank => true %>
+			</div>
+			<div>
+				<%= f.label :expected_graduation %><br />
+				<%= f.collection_select :expected_graduation, StudentProfile.order(:expected_graduation), :id, :expected_graduation, :include_blank => true %>
 			</div>
 			
 			<div class="large-12 medium-12 small-12 columns">
