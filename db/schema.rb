@@ -116,9 +116,8 @@ ActiveRecord::Schema.define(version: 20150122125826) do
   end
 
   create_table "searches", force: true do |t|
-    t.string   "keywords"
-    t.integer  "school_year"
-    t.integer  "major"
+    t.string   "school_year"
+    t.string   "major"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "expected_graduation"
