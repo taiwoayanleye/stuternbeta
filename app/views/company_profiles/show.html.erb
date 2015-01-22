@@ -6,65 +6,67 @@
     <div class="top_header">
       <div class="large-12 small-12 columns">
         <div class = 'panel'>
-           <div id='view_share_button_wrapper'>
-              <div id="view_share_button">
-                  <%= link_to "Internships".upcase, class:"button radius clickapply"%>
-              </div>
-               <div id="view_share_button">
-                  <%= link_to "Follow".upcase, class:"button radius clickview"%>
-              </div>
-              <div id="view_share_button">
-                  <%= link_to "Share".upcase, class:"button radius clickview"%>
-              </div>
-              <div id="view_share_button">
-                  <%= link_to "Next Company".upcase, class:"button radius clickview"%>
+          <div id='view_share_button_wrapper'>
+            <div id="view_share_button">
+                <%= link_to "Internships".upcase, class:"button radius clickapply"%>
+            </div>
+             <div id="view_share_button">
+                <%= link_to "Follow".upcase, class:"button radius clickview"%>
+            </div>
+            <div id="view_share_button">
+                <%= link_to "Share".upcase, class:"button radius clickview"%>
+            </div>
+            <div id="view_share_button">
+                <%= link_to "Next Company".upcase, class:"button radius clickview"%>
+            </div>
+          </div>
+
+          <!--company_name-->
+          <div class="row">
+            <div class='company_name'>
+              <div class="large-12 medium-12 small-12 columns">
+                <% if !@company_profile.company_name.nil? %>
+                <a><%= @company_profile.company_name.upcase %></a>
+                <% else %>
+                <p><%= 'We are coming' %></p>
+                <% end %>
               </div>
             </div>
-            <!--company_name-->
-            <div class="row">
-              <div class='company_name'>
-                <div class="large-12 medium-12 small-12 columns">
-                  <% if !@company_profile.company_name.nil? %>
-                  <a><%= @company_profile.company_name.upcase %></a>
-                  <% else %>
-                  <p><%= 'We are coming' %></p>
-                  <% end %>
-                </div>
+          </div>
+          <hr>
+
+          <div class="row">
+
+            <!-- profile image -->
+            <div class="large-2 medium-12 small-12 columns">
+              <div class="profileimage">
+                <%= image_tag @company_profile.image_url(:thumb) %>
               </div>
             </div>
-            <hr>
-            <div class="row">
-              
-              <!-- profile image -->
-              <div class="large-2 medium-12 small-12 columns">
-                <div class="profileimage">
-                  # <%= image_tag @company_profile.image_url(:thumb) %>
-                </div>
-              </div>
 
-              <!-- company facts -->
-              <div class="large-10 medium-12 small-12 columns">
+            <!-- company facts -->
+            <div class="large-10 medium-12 small-12 columns">
 
-                <div class='row'>
-                  <div class="company_facts">
+              <div class='row'>
 
-                    <!-- no_of_employees -->
-                    <div class="large-3 medium-3 small-3 columns">
+                <div class="company_facts">
 
-                      <div class ='no_of_employees'>
-                        <p>Employees</p>
-                        <a class = 'fact_a_content'>
-                          <% if !@company_profile.number_of_employees.nil? %>
-                            <p><%= @company_profile.number_of_employees %></p>
+                  <!-- no_of_employees -->
+                  <div class="large-3 medium-3 small-3 columns">
 
-                          <% else %>
-                          <i>?</i> 
-                          <% end %>
-                        </a>
-                      </div>
+                    <div class ='no_of_employees'>
+                      <p>Employees</p>
+                      <a class = 'fact_a_content'>
+                        <% if !@company_profile.number_of_employees.nil? %>
+                        <p><%= @company_profile.number_of_employees %></p>
+                        <% else %>
+                        <i>?</i> 
+                        <% end %>
+                      </a>
+                    </div>
 
                     <!-- established -->
-                     <div class="large-3 medium-3 small-3 columns">
+                    <div class="large-3 medium-3 small-3 columns">
 
                       <div class ='established'>
                         <p>Established</p>
@@ -76,50 +78,47 @@
                           <% end %>
                         </a>
                       </div>
-                    
+                      
 
-                    <!-- company type -->
-                    <div class="large-3 medium-3 small-3 columns">
-
-                      <div class ='company_type'>
-                        <p>Sector</p>
-                        <a class = 'fact_a_content'>
-                          <% if !@company_profile.company_type.nil? %>
-                            <%= @company_profile.company_type %>
-                          <% else %>
-                            <i>?</i>
-                          <% end %>
-                        </a>
+                      <!-- company type -->
+                      <div class="large-3 medium-3 small-3 columns">
+                        <div class ='company_type'>
+                          <p>Sector</p>
+                          <a class = 'fact_a_content'>
+                            <% if !@company_profile.company_type.nil? %>
+                              <%= @company_profile.company_type %>
+                            <% else %>
+                              <i>?</i>
+                            <% end %>
+                          </a>
+                        </div>
                       </div>
-                    </div>
 
-                    <!-- headquaters -->
-                    <div class="large-3 medium-3 small-3 columns">
-                      <div class ='headqauters'>
-
-                      <i class ='headqauters'>
-                        <p>Headquaters</p>
-                        <a class = 'fact_a_content'>
-                          <% if !@company_profile.location.nil? %>
-                            <%= @company_profile.location %>
-                          <% else %>
-                            <i>?</i>
-                          <% end %>
-                        </a>
-
-                        </i>
+                      <!-- headquaters -->
+                      <div class="large-3 medium-3 small-3 columns">
+                        <div class ='headqauters'>
+                          <i class ='headqauters'>
+                            <p>Headquaters</p>
+                            <a class = 'fact_a_content'>
+                              <% if !@company_profile.location.nil? %>
+                                <%= @company_profile.location %>
+                              <% else %>
+                                <i>?</i>
+                              <% end %>
+                            </a>
+                          </i>
+                        </div>
                       </div>
-                    </div>
 
+                    </div>
                   </div>
                 </div>
               </div>
-
+              <hr>
             </div>
-            <hr>
-
+          </div>
         </div>
-     </div>
+      </div>
     </div>
   
     <div class="top_body">
@@ -127,7 +126,6 @@
         <div class="panel">
 
           <!-- nav -->
-
           <div class= "row">
             <div class="large-12 medium-12 small-12 columns">
               <div id="companies_nav">
@@ -136,7 +134,6 @@
             </div>
           </div>
 
-         
           <!--company_name-->
           <div class="row">
             <div class='company_name'>
@@ -155,8 +152,7 @@
           <div class= "row">
             <div class="large-8 medium-12 small-12 columns">
               <div class="main_pics pics picsmargin">
-
- <!--                <% image_tag @company_profile.image.url %> -->
+                <% image_tag @company_profile.image.url %>
                 <% @office_photos.each do |p| %>
                   <%= image_tag p.images_url%>
                   <!-- <%= link_to "Edit", edit_office_photo_path(p) %> -->
@@ -229,47 +225,38 @@
           <!--people-->
           <div class= "row">
 
+          <p>What Our People says</p>
+          <div class="large-3 small-12 columns">
 
-            <p>What Our People says</p>
-            <div class="large-3 small-12 columns">
-              <div class="p_words">
-               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
+            <div class="p_words">
+             <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
 
+              <div class="large-3 small-12 columns">
+                <div class="p_words">
+                   <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
 
-            <div class="large-3 small-12 columns">
-              <div class="p_words">
-               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
+                  <div class="people's words">
+                   <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford</b>
+                   <p>Audit Senior Assistant</p>
 
-              <div class="people's words">
-               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford</b>
-               <p>Audit Senior Assistant</p>
+                  </div>
+                </div>
 
+                <div class="large-3 small-12 columns">
+                  <div class="p_words">
+                   <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
+                  </div>
+                </div>
+
+                <div class="large-3 small-12 columns">
+
+                  <div class="p_words">
+                   <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b>    
+
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="large-3 small-12 columns">
-              <div class="p_words">
-               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b> 
-              </div>
-            </div>
-
-            <div class="large-3 small-12 columns">
-
-              <div class="p_words">
-               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford (Audit Senior Assistant)</b>    
-
-              </div>
-            </div>
-
-
-              </div>
-            </div>
-
-            <div class="large-3 small-12 columns">
-              <div class="people's words">
-               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford</b>
-               <p>Audit Senior Assistant</p>
-              </div>
             </div>
 
             <div class="large-3 small-12 columns">
@@ -286,7 +273,12 @@
               </div>
             </div>
 
-
+            <div class="large-3 small-12 columns">
+              <div class="people's words">
+               <i>“Audit is definitely something that is meant for a thorough, meticulous person, a person that is organized.”</i>  <b>- Andre Bodiford</b>
+               <p>Audit Senior Assistant</p>
+              </div>
+            </div>
           </div>
 
           <div class="row">
@@ -349,6 +341,7 @@
           </div>
       </div>
     </div>
+
   </div>
 
 </div>
