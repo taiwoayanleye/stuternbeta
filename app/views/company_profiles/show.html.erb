@@ -21,7 +21,7 @@
               </div>
             </div>
             <!--company_name-->
-            <div class="row">
+          <!--   <div class="row">
               <div class='company_name'>
                 <div class="large-12 medium-12 small-12 columns">
                   <% if !@company_profile.company_name.nil? %>
@@ -31,14 +31,14 @@
                   <% end %>
                 </div>
               </div>
-            </div>
+            </div> -->
             <hr>
             <div class="row">
               
               <!-- profile image -->
               <div class="large-2 medium-12 small-12 columns">
                 <div class="profileimage">
-                  # <%= image_tag @company_profile.image_url(:thumb) %>
+                  <%= image_tag @company_profile.image_url(:thumb) %>
                 </div>
               </div>
 
@@ -50,37 +50,34 @@
 
                     <!-- no_of_employees -->
                     <div class="large-3 medium-3 small-3 columns">
-
-                      <div class ='no_of_employees'>
-                        <p>Employees</p>
-                        <a class = 'fact_a_content'>
-                          <% if !@company_profile.number_of_employees.nil? %>
-                            <p><%= @company_profile.number_of_employees %></p>
-
-                          <% else %>
-                          <i>?</i> 
-                          <% end %>
-                        </a>
-                      </div>
+                    <div class ='no_of_employees'>
+                      <p>Employees</p>
+                      <a class = 'fact_a_content'>
+                        <% if !@company_profile.number_of_employees.nil? %>
+                        <p><%= @company_profile.number_of_employees %></p>
+                        <% else %>
+                        <i>?</i> 
+                        <% end %>
+                      </a>
+                    </div>
 
                     <!-- established -->
-                     <div class="large-3 medium-3 small-3 columns">
+                  <div class="large-3 medium-3 small-3 columns">
 
-                      <div class ='established'>
-                        <p>Established</p>
-                        <a class = 'fact_a_content'>
-                          <% if !@company_profile.founded.nil? %>
-                            <%= @company_profile.founded %>
-                          <% else %>
-                          <i>?</i> 
-                          <% end %>
-                        </a>
-                      </div>
+                    <div class ='established'>
+                      <p>Established</p>
+                      <a class = 'fact_a_content'>
+                        <% if !@company_profile.founded.nil? %>
+                          <%= @company_profile.founded %>
+                        <% else %>
+                        <i>?</i> 
+                        <% end %>
+                      </a>
+                    </div>
                     
 
                     <!-- company type -->
                     <div class="large-3 medium-3 small-3 columns">
-
                       <div class ='company_type'>
                         <p>Sector</p>
                         <a class = 'fact_a_content'>
@@ -96,17 +93,15 @@
                     <!-- headquaters -->
                     <div class="large-3 medium-3 small-3 columns">
                       <div class ='headqauters'>
-
-                      <i class ='headqauters'>
-                        <p>Headquaters</p>
-                        <a class = 'fact_a_content'>
-                          <% if !@company_profile.location.nil? %>
-                            <%= @company_profile.location %>
-                          <% else %>
-                            <i>?</i>
-                          <% end %>
-                        </a>
-
+                        <i class ='headqauters'>
+                          <p>Headquaters</p>
+                          <a class = 'fact_a_content'>
+                            <% if !@company_profile.location.nil? %>
+                              <%= @company_profile.location %>
+                            <% else %>
+                              <i>?</i>
+                            <% end %>
+                          </a>
                         </i>
                       </div>
                     </div>
