@@ -17,7 +17,7 @@
 				<%= f.input :keywords, placeholder: 'KEYWORDS', label: false %><br />
 			</div>
 			<div class="field">
-			    <%= f.input :school_year, :collection => school_year, placeholder: "SCHOOL YEAR", label: false %><br />
+			    <%= f.input :school_year, :as => :check_boxes, :collection => [['FIRST', :FIRST_YEAR]], :checked => [:JPN], :include_hidden => false, placeholder: "SCHOOL YEAR", label: false %><br />
 <!-- 		    	<% f.collection_select :school_year, StudentProfile.order(:school_year), :id, :school_year, :include_blank => true %> -->
 			</div>
 			<div class="field">
