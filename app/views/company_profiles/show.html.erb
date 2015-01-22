@@ -6,13 +6,12 @@
     <div class="top_header">
       <div class="large-12 small-12 columns">
         <div class = 'panel'>
-          <!--  <div id='view_share_button_wrapper'>
+           <div id='view_share_button_wrapper'>
               <div id="view_share_button">
                   <%= link_to "Internships".upcase, class:"button radius clickapply"%>
               </div>
                <div id="view_share_button">
                   <%= link_to "Follow".upcase, class:"button radius clickview"%>
-<<<<<<< HEAD
               </div>
               <div id="view_share_button">
                   <%= link_to "Share".upcase, class:"button radius clickview"%>
@@ -20,7 +19,7 @@
               <div id="view_share_button">
                   <%= link_to "Next Company".upcase, class:"button radius clickview"%>
               </div>
-            </div> -->
+            </div>
             <!--company_name-->
             <div class="row">
               <div class='company_name'>
@@ -51,13 +50,8 @@
 
                     <!-- no_of_employees -->
                     <div class="large-3 medium-3 small-3 columns">
-                      <div class ='no_of_employees'>
-                        <p>Employees</p>
-                        <a class = 'fact_a_content'>
-                          <% if !@company_profile.number_of_employees.nil? %>
-                            <%= @company_profile.number_of_employees %>
 
-                      <i class ='no_of_employees'>
+                      <div class ='no_of_employees'>
                         <p>Employees</p>
                         <a class = 'fact_a_content'>
                           <% if !@company_profile.number_of_employees.nil? %>
@@ -67,9 +61,7 @@
                           <i>?</i> 
                           <% end %>
                         </a>
-
-                      </i>
-                    </div>
+                      </div>
 
                     <!-- established -->
                      <div class="large-3 medium-3 small-3 columns">
@@ -79,20 +71,11 @@
                         <a class = 'fact_a_content'>
                           <% if !@company_profile.founded.nil? %>
                             <%= @company_profile.founded %>
-
-                      <i class ='established'>
-                        <p>Established</p>
-                        <a class = 'fact_a_content'>
-                          <% if !@company_profile.number_of_employees.nil? %>
-                            <%# @company_profile.number_of_employees %>
-
                           <% else %>
                           <i>?</i> 
                           <% end %>
                         </a>
-                      </i>
                       </div>
-                    </div>
                     
 
                     <!-- company type -->
@@ -124,7 +107,8 @@
                           <% end %>
                         </a>
 
-                      </i>
+                        </i>
+                      </div>
                     </div>
 
                   </div>
