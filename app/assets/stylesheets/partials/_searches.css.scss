@@ -1,13 +1,10 @@
-.searchone{
-	padding-right: 5px;
+.radio{
+	display: inline-block;
 }
-.searchTwo{                                                                                                                                                                                     
-	padding-right: 5px;
+label{
+	padding: rem-calc(0px 10px);
+}
+input{
+	margin: 0;
 }
 
-.row{
-	input{
-		
-		border-color: $oil;
-	}
-}
