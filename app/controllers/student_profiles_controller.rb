@@ -142,6 +142,10 @@ class StudentProfilesController < ApplicationController
   end
 
   private
+
+    # def search
+    #   params.require(:search).permit( :school, :expected_graduation, :school_year, :last_completed_degree, :major)
+    # end
     # Use callbacks to share common setup or constraints between actions.
     def set_student_profile
       if user_signed_in? && current_user.user_type == "student"

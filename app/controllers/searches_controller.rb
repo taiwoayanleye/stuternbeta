@@ -4,16 +4,18 @@ class SearchesController < ApplicationController
 	end
 
 	def create
-		@search = Search.create!(params[:search_params])
+		@search = Search.create!(search_params)
+		# (params[:search_params])
 		redirect_to @search
 	end
 
 	def show
-		@search = Search.find(params[:id])
+		@search = Search.find(params[:id]) 
+		# @search = Search.new(search_params)
 	end
 
 private
 	def search_params
-      params.require(:search).permit( :school, :expected_graduation, :school_year, :last_completed_degree, :major)
+      params.require(:search).permit(:keywords, :school_year, :major)
     end
 end
