@@ -30,4 +30,5 @@ class StudentProfile < ActiveRecord::Base
     def user
     	User.where(id: self.user_id).first
     end
+
 end
