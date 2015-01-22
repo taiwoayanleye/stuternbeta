@@ -15,7 +15,7 @@ class StudentProfilesController < ApplicationController
     # respond_to do |format|
     #   format.html # index.html.erb
     #   format.json { render json: @student_profiles }
-    end
+    # end
   end
 
   # def search
@@ -99,11 +99,7 @@ class StudentProfilesController < ApplicationController
       @student_profile =  StudentProfile.where(id: params[:id]).first
       # @student_profile =  StudentProfile.where(user_id: params[:id]).first 
     end
-    
-    # @student_profile = current_user.profile
-    # @student_profile =  StudentProfile.where(user_id: params[:id]).first
-    # @student_profile = current_user.profile
-    # @student_profile =  StudentProfile.where(user_id: params[:id]).first
+  
     @skills = @student_profile.skills
     @work_histories = @student_profile.stu_work_experiences
     @references = @student_profile.stu_references
@@ -114,6 +110,7 @@ class StudentProfilesController < ApplicationController
   # GET /student_profiles/1/edit
   def edit
     @student_profile = current_user.profile
+    redirect_to @student_profile
   end
 
   # PATCH/PUT /student_profiles/1
@@ -158,6 +155,7 @@ class StudentProfilesController < ApplicationController
     def student_profile_params
       params.require(:student_profile).permit(:first_name, :last_name, :brief_summary, :school, :expected_graduation, :school_year, :last_completed_degree, :residential_address, :major, :image, user_attributes: [ :id, :email, :password, :user_type ])
     end
+
     def allowed_user
       # redirect_to root_url, notice: "You shall not pass!" unless current_user.try(:user_type) === "company" && current_user.company_verified? === true
       if current_user.user_type === "company" && unless current_user.company_verified? === true
@@ -165,3 +163,4 @@ class StudentProfilesController < ApplicationController
         end
       end
     end
+  end

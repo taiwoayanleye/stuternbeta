@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.1.3'
 
-gem 'carrierwave'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sass', '3.2.19'
@@ -43,8 +42,6 @@ gem 'mandrill_mailer'
 gem 'monologue'
 # Search
 gem 'filterrific'	
-#New Relic
-gem 'newrelic_rpm'
 
 group :doc do 
 	gem 'sdoc', '~> 0.4.0'
