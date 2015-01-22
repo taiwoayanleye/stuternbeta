@@ -99,11 +99,7 @@ class StudentProfilesController < ApplicationController
       @student_profile =  StudentProfile.where(id: params[:id]).first
       # @student_profile =  StudentProfile.where(user_id: params[:id]).first 
     end
-    
-    # @student_profile = current_user.profile
-    # @student_profile =  StudentProfile.where(user_id: params[:id]).first
-    # @student_profile = current_user.profile
-    # @student_profile =  StudentProfile.where(user_id: params[:id]).first
+  
     @skills = @student_profile.skills
     @work_histories = @student_profile.stu_work_experiences
     @references = @student_profile.stu_references
