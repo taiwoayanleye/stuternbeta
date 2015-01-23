@@ -15,6 +15,7 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'rails_admin'
 gem 'rmagick', :require => 'RMagick'
+gem "bower-rails", "~> 0.9.1"
 # gem 'rmagick', '2.13.2'
 # Amazon account
 gem 'aws-sdk'
