@@ -81,14 +81,6 @@ ActiveRecord::Schema.define(version: 20150125134837) do
 
   add_index "monologue_tags", ["name"], name: "index_monologue_tags_on_name"
 
-  create_table "monologue_users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "office_photos", force: true do |t|
     t.integer  "company_profile_id"
     t.string   "images"
@@ -185,10 +177,11 @@ ActiveRecord::Schema.define(version: 20150125134837) do
     t.string   "last_completed_degree"
     t.string   "residential_address"
     t.string   "major"
-    t.text     "resume"
+    t.text     "brief_summary"
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_id"
   end
 
   create_table "users", force: true do |t|

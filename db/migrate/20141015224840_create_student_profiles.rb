@@ -9,7 +9,7 @@ class CreateStudentProfiles < ActiveRecord::Migration
       t.string :last_completed_degree
       t.string :residential_address
       t.string :major
-      t.text   :resume
+      t.text   :brief_summary
       t.string :image
 
       t.timestamps
