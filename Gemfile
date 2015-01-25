@@ -40,7 +40,7 @@ gem 'omniauth'
 gem 'mandrill-api'
 gem 'mandrill_mailer'
 #Blogging
-gem 'monologue'
+# gem 'monologue'
 # Search
 gem 'filterrific'
 # Simple Form

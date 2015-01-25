@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20150125134837) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "expected_graduation"
-    t.string   "school"
+    t.integer  "school_id"
   end
 
   create_table "skills", force: true do |t|

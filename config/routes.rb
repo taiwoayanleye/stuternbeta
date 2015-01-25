@@ -137,5 +137,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  mount Monologue::Engine, at: '/idea'
+  # mount Monologue::Engine, at: '/idea'
 end
