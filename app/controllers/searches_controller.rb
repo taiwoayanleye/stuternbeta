@@ -1,6 +1,8 @@
 class SearchesController < ApplicationController
-  # Stops current student users and non verified companies from accessing all actions except index and search
-  before_action :allowed_user
+	#make sure the user is logged in
+	before_action :authenticate_user!, :get_user
+	# Stops current student users and non verified companies from accessing all actions except index and search
+	before_action :allowed_user
 
 	def new
 		@search  = Search.new

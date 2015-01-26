@@ -6,7 +6,7 @@ class CreateCompanyProfiles < ActiveRecord::Migration
       t.string :company_type
       t.integer :number_of_employees
       t.string :website
-      t.string :location
+      t.integer :location_id
       t.string :reg_code
       t.boolean :verified
       t.string :image

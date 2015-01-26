@@ -46,7 +46,7 @@
     <%= f.select :last_completed_degree, [['SSCE', 'SSCE'], ['Diploma', 'Diploma'], ['BSc', 'BSc']] %>
   </div>
   <div class="field">
-    <%= f.input :location_id, collection: Location.order(:name), :id, :name, include_blank: true %><br />
+    <%= f.input :location_id, collection: Location.order(:name), include_blank: true %><br />
   </div>
   <div class="field">
     <%= f.label :major %><br>

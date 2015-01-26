@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150126145736) do
     t.string   "company_type"
     t.integer  "number_of_employees"
     t.string   "website"
-    t.string   "location"
+    t.integer  "location_id"
     t.string   "reg_code"
     t.boolean  "verified"
     t.string   "image"
