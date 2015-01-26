@@ -111,7 +111,8 @@ class CompanyProfilesController < ApplicationController
   # PATCH/PUT /company_profiles/1
   # PATCH/PUT /company_profiles/1.json
   def update
-    @company_profile = current_user.profile
+    # @company_profile = current_user.profile
+    @company_profile = CompanyProfile.find(params[:id])
       respond_to do |format|
         if @company_profile.update_attributes(company_profile_params)
           format.html { redirect_to company_profile_path(current_user.profileable_id), notice: 'Company profile was successfully updated.' }
