@@ -21,7 +21,7 @@ class StudentProfile < ActiveRecord::Base
 	paginates_per 9
 
 	# VALIDATIONS HERE
-    validates :first_name, :last_name, :last_completed_degree, :school,
+    validates :first_name, :last_name, :last_completed_degree,
               :format => { :with => /\A[a-zA-Z\'\- ]*\z/,
                            :message => "Numbers and symbols are not allowed." },
               :length => { :minimum => 1,

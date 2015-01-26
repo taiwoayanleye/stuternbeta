@@ -1,17 +1,14 @@
-		<% if user_signed_in? %>
-		  <!-- <li>
-		  	<%= link_to 'Edit registration', edit_user_registration_path, :class => 'navbar-link' %>
-		  </li> -->
-		 <% else %>
-		   <li class="has-dropdown">
-	        <a href="#">Join</a>
-	        <ul class="dropdown">
-	          <li>
-	          	<%= link_to 'Candidate', main_app.new_user_registration_path(user_type: "student"), :class => 'navbar-link' %>
-	          </li>
-	          <li>
-	          	<%= link_to 'Employer', main_app.new_user_registration_path(user_type: "company"), :class => 'navbar-link' %>
-	          </li>
-	        </ul>
-	      </li>
-		<% end %>
+<% if user_signed_in? %>
+ <% else %>
+   <li class="has-dropdown">
+    <a href="#">Join</a>
+    <ul class="dropdown">
+      <li>
+      	<%= link_to 'Candidate', main_app.new_user_registration_path(user_type: "student"), :class => 'navbar-link' %>
+      </li>
+      <li>
+      	<%= link_to 'Employer', main_app.new_user_registration_path(user_type: "company"), :class => 'navbar-link' %>
+      </li>
+    </ul>
+  </li>
+<% end %>

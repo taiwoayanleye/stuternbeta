@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125134837) do
+ActiveRecord::Schema.define(version: 20150126033122) do
 
   create_table "company_profiles", force: true do |t|
     t.string   "company_name"
@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(version: 20150125134837) do
   end
 
   add_index "monologue_tags", ["name"], name: "index_monologue_tags_on_name"
+
+  create_table "monologue_users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "office_photos", force: true do |t|
     t.integer  "company_profile_id"

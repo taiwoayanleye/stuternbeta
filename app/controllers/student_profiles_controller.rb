@@ -110,7 +110,7 @@ class StudentProfilesController < ApplicationController
   # GET /student_profiles/1/edit
   def edit
     @student_profile = current_user.profile
-    redirect_to @student_profile
+    # redirect_to @student_profile
   end
 
   # PATCH/PUT /student_profiles/1
@@ -153,7 +153,7 @@ class StudentProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_profile_params
-      params.require(:student_profile).permit(:first_name, :last_name, :brief_summary, :school, :expected_graduation, :school_year, :last_completed_degree, :residential_address, :major, :image, user_attributes: [ :id, :email, :password, :user_type ])
+      params.require(:student_profile).permit(:first_name, :last_name, :brief_summary, :school_id, :expected_graduation, :school_year, :last_completed_degree, :residential_address, :major, :image, user_attributes: [ :id, :email, :password, :user_type ])
     end
 
     def allowed_user

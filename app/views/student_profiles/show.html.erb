@@ -35,7 +35,7 @@
                   <div class="row">
                     <div class="large-12 small-12 columns">
                       <i class="fa fa-university"></i>
-                      <p><%= @student_profile.school %>
+                      <p><%= @student_profile.school.name %>
                       <% if !(@student_profile.school.nil? && @student_profile.major.nil?) %> 
                         <%='|'%>
                       <% else %>
