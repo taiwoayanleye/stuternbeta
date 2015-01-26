@@ -32,12 +32,12 @@ class ApplicationController < ActionController::Base
         edit_student_profile_path(:id)
       end
     else
-      if !@user.profile.verified? === true
-        edit_company_profile_path(:id)
-      else
+      # if !@user.profile.verified? === true
+      #   edit_company_profile_path(:id)
+      # else
         new_search_url
         # search_student_profiles_url
-      end
+      # end
     end
   end
 
