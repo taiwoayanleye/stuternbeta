@@ -7,7 +7,7 @@ class CreateStudentProfiles < ActiveRecord::Migration
       t.string :expected_graduation
       t.string :school_year
       t.string :last_completed_degree
-      t.string :residential_address
+      t.integer :location_id
       t.string :major
       t.text   :brief_summary
       t.string :image

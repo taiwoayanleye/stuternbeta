@@ -168,3 +168,7 @@ Add hire or fire button for employers
 
 16
 Set stutern.com 
+
+17
+Add location model as association with students' profile
+[ rails generate model location name:string]

@@ -75,24 +75,6 @@ class CompanyProfilesController < ApplicationController
     @company_profile = current_user.profile
   end
 
-    # def create
-  #   @company_profile = current_user.company_profiles.build(company_profile_params)
-  #   authorize @company_profile
-  #   if @company_profile.save
-  #     # to handle multiple images upload on create
-  #     if params[:images]
-  #       params[:images].each { |image|
-  #         @company_profile.office_photos.create(images: image)
-  #       }
-  #     end
-  #     flash[:notice] = "Your company_profile has been created."
-  #     redirect_to @company_profile
-  #   else 
-  #     flash[:alert] = "Something went wrong."
-  #     render :new
-  #   end
-  # end
-
   def create
     @company_profile = CompanyProfile.new(company_profile_params)
 

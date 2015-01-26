@@ -284,9 +284,9 @@
                         <% end %>
                       </tr>
                       <tr>
-                        <th>Residential address:</th>
-                        <% if !@student_profile.residential_address.nil? %>
-                          <td><%= @student_profile.residential_address %></td>
+                        <th>Location:</th>
+                        <% if !@student_profile.location_id.nil? %>
+                          <td><%= @student_profile.location_id.name %></td>
                         <% else %>
                           <td>?</td>
                         <% end %>
