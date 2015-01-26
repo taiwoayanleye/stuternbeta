@@ -12,10 +12,10 @@ class StudentProfilesController < ApplicationController
     @student_profiles = StudentProfile.search(params[:search])
     # @student_profiles = StudentProfile.all
 
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @student_profiles }
-    # end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @student_profiles }
+    end
   end
 
   # def search
@@ -117,7 +117,6 @@ class StudentProfilesController < ApplicationController
   # PATCH/PUT /student_profiles/1.json
   def update
     @student_profile = StudentProfile.find(params[:id])
-
     respond_to do |format|
       if @student_profile.update_attributes(student_profile_params)
         format.html { redirect_to student_profile_path(current_user.profileable_id), notice: 'Student profile was successfully updated.' }
