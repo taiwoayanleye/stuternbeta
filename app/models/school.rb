@@ -1,3 +1,3 @@
 class School < ActiveRecord::Base
-	has_many :student_profile
+	has_many :student_profiles
 end

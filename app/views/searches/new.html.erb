@@ -30,6 +30,9 @@
       <div>
         <%= f.input :school_id, collection: School.order(:name) %><br />
       </div>
+      <div>
+        <%= f.input :location_id, collection: Location.order(:name) %><br />
+      </div>
       
       <div class="large-12 medium-12 small-12 columns">
         <a><%= submit_tag 'Search' , class:"button radius large-12 small-12 medium-12" %></a>

@@ -11,6 +11,7 @@ class StudentProfile < ActiveRecord::Base
 	has_many :job_applications
 	has_many :applicants, class_name: "JobApplication", foreign_key: "student_profile_id"
 	belongs_to :school
+	belongs_to :location
 
 	# has_many :job_entries, class_name: "JobApplication", foreign_key: "job_hunter_id"
 

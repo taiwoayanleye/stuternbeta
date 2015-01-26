@@ -14,6 +14,7 @@ CSV.foreach(Rails.root.join("schools.csv"), headers: true) do |row|
 		school.name = row[1]
 	end
 end
+puts "...schools seeded"
 
 puts "Importing locations..."
 CSV.foreach(Rails.root.join("locations.csv"), headers: true) do |row|
@@ -22,3 +23,4 @@ CSV.foreach(Rails.root.join("locations.csv"), headers: true) do |row|
 		location.name = row[1]
 	end
 end
+puts "...locations seeded"
