@@ -7,30 +7,30 @@ class SavedStudentProfilesController < ApplicationController
   before_filter :verified?
 
 
-  # def index
-  #   @saved_student_profiles = SavedStudentProfile.all
-  #   respond_with(@saved_student_profiles)
-  # end
+  def index
+    @saved_student_profiles = SavedStudentProfile.all
+    # respond_to(@saved_student_profiles)
+  end
 
-  # def show
-  #   respond_with(@saved_student_profile)
-  # end
+  def show
+    respond_with(@saved_student_profile)
+  end
 
-  # def new
-  #   @saved_student_profile = SavedStudentProfile.new
-  #   respond_with(@saved_student_profile)
-  # end
+  def new
+    @saved_student_profile = SavedStudentProfile.new
+    # respond_to(@saved_student_profile)
+  end
 
   # GET /saved_student_profiles/1/edit
   def edit
     @saved_student_profile = SavedStudentProfile.find(params[:id])
   end
 
-  # def create
-  #   @saved_student_profile = SavedStudentProfile.new(saved_student_profile_params)
-  #   @saved_student_profile.save
-  #   respond_with(@saved_student_profile)
-  # end
+  def create
+    @saved_student_profile = SavedStudentProfile.new(saved_student_profile_params)
+    @saved_student_profile.save
+    respond_with(@saved_student_profile)
+  end
 
   # PUT /saved_student_profiles/1
   # PUT /saved_student_profiles/1.json
@@ -67,6 +67,6 @@ class SavedStudentProfilesController < ApplicationController
     end
 
     def saved_student_profile_params
-      params.require(:saved_student_profile).permit(:school_text, :year_text, :skill_text)
+      params.require(:saved_student_profile).permit(:first_name, :school_id, :major, :image)
     end
 end
