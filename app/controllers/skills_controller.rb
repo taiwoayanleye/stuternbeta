@@ -1,4 +1,4 @@
-class SkillsController < ApplicationController
+  class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
   # User need be logged in before they can perform action
@@ -34,7 +34,7 @@ class SkillsController < ApplicationController
 
   # GET /skills/1/edit
   def edit
-    @skill = Skill.find(params[:id])
+    @skill = current_user.Skill.find(params[:id])
   end
 
   # POST /skills
@@ -54,7 +54,7 @@ class SkillsController < ApplicationController
   # PATCH/PUT /skills/1
   # PATCH/PUT /skills/1.json
   def update
-    @skill = Skill.find(params[:id])
+    @skill = current_user.Skill.find(params[:id])
 
     respond_to do |format|
       # if @skill.update(skill_params)
@@ -72,7 +72,7 @@ class SkillsController < ApplicationController
   # DELETE /skills/1
   # DELETE /skills/1.json
   def destroy
-    @skill = Skill.find(params[:id])
+    @skill = current_user.Skill.find(params[:id])
     @skill.destroy
 
     respond_to do |format|
@@ -84,7 +84,7 @@ class SkillsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_skill
-      @skill = Skill.find(params[:id])
+      @skill = current_user.Skill.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

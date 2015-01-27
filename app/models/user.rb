@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
 
-	#ASSOCIATIONS
+	# ASSOCIATIONS
 	# belongs_to :profileable
+  # has_many :connections
+  # has_many :connectees, :through => :connections
 
 	after_create :create_profileable_user
 	

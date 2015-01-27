@@ -58,6 +58,7 @@ group :development do
 	gem 'meta_request'
 	gem 'faker'
 	gem 'populator'
+	# gem 'hirb'
 end
 
 group :production do

@@ -9,12 +9,32 @@ class SearchesController < ApplicationController
 	end
 
 	def create
-		@search = Search.create!(search_params)
-		# (params[:search_params])
-		redirect_to @search
+	@search = Search.create!(search_params)
+	# (params[:search_params])
+	redirect_to @search
 	end
 
 	def show
+		# @saved = SavedStudentProfile.where(company_profile_id: current_user.profileable_id)
+
+	 #    if params[:save_search]
+	 #      @saved_student_profile = SavedStudentProfile.new
+	 #      @saved_student_profile.company_profile_id = current_user.profileable_id
+	 #      @saved_student_profile.school_text = params[:school_text]
+	 #      @saved_student_profile.year_text = params[:year_text]
+	 #      @saved_student_profile.skill_text = params[:skill_text]
+
+	 #      respond_to do |format|
+	 #        if @saved_student_profile.save
+	 #          format.html { redirect_to :back, notice: 'Saved student profile was successfully created.' }
+	 #          format.json { render json: @saved_student_profile, status: :created, location: @saved_student_profile }
+	 #        else
+	 #          format.html { render action: "new" }
+	 #          format.json { render json: @saved_student_profile.errors, status: :unprocessable_entity }
+	 #        end
+	 #      end
+	 #    end
+	    @student_profiles = StudentProfile.where(params[:search])
 		@search = Search.find(params[:id]) 
 		# @search = Search.new(search_params)
 	end

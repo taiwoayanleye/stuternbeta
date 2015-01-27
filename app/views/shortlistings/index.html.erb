@@ -1,0 +1,27 @@
+<h1>Listing shortlistings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company profile</th>
+      <th>Student profile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shortlistings.each do |shortlisting| %>
+      <tr>
+        <td><%= shortlisting.company_profile_id %></td>
+        <td><%= shortlisting.student_profile_id %></td>
+        <td><%= link_to 'Show', shortlisting %></td>
+        <td><%= link_to 'Edit', edit_shortlisting_path(shortlisting) %></td>
+        <td><%= link_to 'Destroy', shortlisting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shortlisting', new_shortlisting_path %>

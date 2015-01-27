@@ -9,6 +9,10 @@ class CompanyProfile < ActiveRecord::Base
   has_many :offers, class_name: "JobApplication", foreign_key: "company_profile_id"
   has_many :office_photos
   belongs_to :location
+  has_many :shortlistings
+  has_many :student_profiles, :through => :shortlistings
+  
+  # has_many :shortlist_students
   # , :inverse_of => :company_profile, :dependent => :destroy
   # enable nested attributes for office_photos through company_profile class
   accepts_nested_attributes_for :office_photos

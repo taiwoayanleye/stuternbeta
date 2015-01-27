@@ -67,6 +67,6 @@ class SavedStudentProfilesController < ApplicationController
     end
 
     def saved_student_profile_params
-      params.require(:saved_student_profile).permit(:first_name, :school_id, :major, :image)
+      params.require(:saved_student_profile).permit(:school_text, :year_text, :skill_text)
     end
 end

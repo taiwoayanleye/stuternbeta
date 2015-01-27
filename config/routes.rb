@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :shortlistings
+
   get 'blog/index'
 
   resources :job_applications
