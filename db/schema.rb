@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128150600) do
+ActiveRecord::Schema.define(version: 20150128164018) do
 
   create_table "company_profiles", force: true do |t|
     t.string   "company_name"
     t.text     "description"
-    t.string   "company_type"
+    t.integer  "industry_id",         limit: 255
     t.integer  "number_of_employees"
     t.string   "website"
     t.integer  "location_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150128150600) do
     t.datetime "updated_at"
     t.string   "user_id"
     t.integer  "company_profile_id"
+    t.integer  "job_function_id"
   end
 
   create_table "locations", force: true do |t|
@@ -148,7 +149,7 @@ ActiveRecord::Schema.define(version: 20150128150600) do
   create_table "search_positions", force: true do |t|
     t.integer  "location_id"
     t.integer  "industry_id"
-    t.integer  "function_id"
+    t.integer  "job_function_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

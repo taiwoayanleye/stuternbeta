@@ -3,7 +3,7 @@ class CreateSearchPositions < ActiveRecord::Migration
     create_table :search_positions do |t|
       t.integer :location_id
       t.integer :industry_id
-      t.integer :function_id
+      t.integer :job_function_id
 
       t.timestamps
     end
