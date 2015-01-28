@@ -201,7 +201,12 @@ end
 
 23
 csv files
-loations.csv
+locations.csv
 schools.csv
 industries.csv
 job_functions.csv
+
+24
+Add models
+Industry model
+Function model
