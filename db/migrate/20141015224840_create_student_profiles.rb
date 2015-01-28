@@ -3,13 +3,13 @@ class CreateStudentProfiles < ActiveRecord::Migration
     create_table :student_profiles do |t|
       t.string :first_name
       t.string :last_name
-      t.string :school
+      t.integer :school_id
       t.string :expected_graduation
       t.string :school_year
       t.string :last_completed_degree
-      t.string :residential_address
+      t.integer :location_id
       t.string :major
-      t.text   :resume
+      t.text   :brief_summary
       t.string :image
 
       t.timestamps

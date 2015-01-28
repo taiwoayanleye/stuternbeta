@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.2.0'
 
 gem 'foundation-datetimepicker-rails'
 gem 'rails', '4.1.6'
@@ -16,6 +16,7 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'rails_admin'
 gem 'rmagick', :require => 'RMagick'
+gem "bower-rails", "~> 0.9.1"
 # gem 'rmagick', '2.13.2'
 # Amazon account
 gem 'aws-sdk'
@@ -44,7 +45,10 @@ gem 'monologue'
 # Search
 gem 'filterrific'
 # Simple Form
-gem 'simple_form'	
+gem 'simple_form'
+
+gem 'best_in_place', '~> 3.0.1'
+gem 'jquery-ui-rails'
 
 group :doc do 
 	gem 'sdoc', '~> 0.4.0'
@@ -58,6 +62,7 @@ group :development do
 	gem 'meta_request'
 	gem 'faker'
 	gem 'populator'
+	# gem 'hirb'
 end
 
 group :production do

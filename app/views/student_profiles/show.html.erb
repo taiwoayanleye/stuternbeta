@@ -3,18 +3,24 @@
   <div class="top-card">
     <div class="row"> 
       <div class="large-12 small-12 columns">
+          <div>
+            <%= link_to "ShortList Student" %>
+          </div>
 
         <div class="panel">
 
           <div class="row">
-            
+ 
             <!-- image -->         
             <div class="large-4 small-4 columns">
               <div class="profile_image">
                 <%= image_tag @student_profile.image_url(:thumb) %>
               </div>
             </div>
-            
+
+<!--        <div class="large-12 medium-12 small-12 columns">
+              <a><%= submit_tag 'Save Search', class:"button radius large-12 small-12 medium-12", :name => 'save_search' %></a>
+            </div>  -->           
             
             
             <div class="large-8 small-8 columns">
@@ -35,8 +41,8 @@
                   <div class="row">
                     <div class="large-12 small-12 columns">
                       <i class="fa fa-university"></i>
-                      <p><%= @student_profile.school %>
-                      <% if !(@student_profile.school.nil? && @student_profile.major.nil?) %> 
+                      <% if !(@student_profile.school.nil? && @student_profile.major.nil?) %>
+                        <p><%= @student_profile.school.name %> 
                         <%='|'%>
                       <% else %>
                         <p>?</p>
@@ -284,9 +290,9 @@
                         <% end %>
                       </tr>
                       <tr>
-                        <th>Residential address:</th>
-                        <% if !@student_profile.residential_address.nil? %>
-                          <td><%= @student_profile.residential_address %></td>
+                        <th>Location:</th>
+                        <% if !@student_profile.location_id.nil? %>
+                          <td><%= @student_profile.location.name %></td>
                         <% else %>
                           <td>?</td>
                         <% end %>

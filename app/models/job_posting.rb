@@ -1,6 +1,7 @@
 class JobPosting < ActiveRecord::Base
 	#ASSOCIATIONS HERE
 	belongs_to :company_profile
+	belongs_to :job_function
 	has_many :job_applications
 	
 	def self.search_for(query)

@@ -10,6 +10,10 @@ class StudentProfile < ActiveRecord::Base
 	has_many :stu_certifications
 	has_many :job_applications
 	has_many :applicants, class_name: "JobApplication", foreign_key: "student_profile_id"
+	belongs_to :school
+	belongs_to :location
+	# has_many :shortlistings
+	has_many :company_profiles, :through => :shortlistings
 
 	# has_many :job_entries, class_name: "JobApplication", foreign_key: "job_hunter_id"
 
@@ -20,7 +24,7 @@ class StudentProfile < ActiveRecord::Base
 	paginates_per 9
 
 	# VALIDATIONS HERE
-    validates :first_name, :last_name, :last_completed_degree, :school,
+    validates :first_name, :last_name, :last_completed_degree,
               :format => { :with => /\A[a-zA-Z\'\- ]*\z/,
                            :message => "Numbers and symbols are not allowed." },
               :length => { :minimum => 1,

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-	#ASSOCIATIONS
+	# ASSOCIATIONS
 	# belongs_to :profileable
 
 	after_create :create_profileable_user

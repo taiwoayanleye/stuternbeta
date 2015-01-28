@@ -1,0 +1,32 @@
+<% if !@saved.empty? %>
+      <div style="display:inline-block; width:75%;">
+        <h3>Saved Searches</h3>
+
+        <table>
+          <tr>
+            <th>School</th>
+            <th>Year</th>
+            <th>Skill</th>
+            <th>Culture</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+
+          <% @saved.each do |search| %>
+              <tr>
+                <td><%= search.school_text %></td>
+                <td><%= search.year_text %></td>
+                <td><%= search.skill_text %></td>
+                <td><%= link_to "Visit", search_student_profiles_url(:school_text => search.school_text,
+                                                                      :year_text => search.year_text,
+                                                                      :skill_text => search.skill_text
+                                                                      # :culture => search.culture
+                                                                      ) %></td>
+                <td><%= link_to "Edit", edit_saved_student_profile_url(search) %></td>
+                <td><%= link_to 'Destroy', search, :method=>:delete, :confirm=>'Are you sure?' %></td>
+              </tr>
+          <% end %>
+        </table>
+        </div>
+    <% end %>

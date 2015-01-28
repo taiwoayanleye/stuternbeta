@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122125826) do
+ActiveRecord::Schema.define(version: 20150129094655) do
 
   create_table "company_profiles", force: true do |t|
     t.string   "company_name"
     t.text     "description"
-    t.string   "company_type"
+    t.integer  "industry_id",         limit: 255
     t.integer  "number_of_employees"
     t.string   "website"
-    t.string   "location"
+    t.integer  "location_id"
     t.string   "reg_code"
     t.boolean  "verified"
     t.string   "image"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20150122125826) do
     t.integer  "founded"
   end
 
+  create_table "industries", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "job_applications", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -36,6 +42,12 @@ ActiveRecord::Schema.define(version: 20150122125826) do
     t.integer  "student_profile_id"
     t.integer  "job_posting_id"
     t.string   "cover_letter"
+  end
+
+  create_table "job_functions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "job_postings", force: true do |t|
@@ -52,6 +64,13 @@ ActiveRecord::Schema.define(version: 20150122125826) do
     t.datetime "updated_at"
     t.string   "user_id"
     t.integer  "company_profile_id"
+    t.integer  "job_function_id"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "monologue_posts", force: true do |t|
@@ -115,13 +134,28 @@ ActiveRecord::Schema.define(version: 20150122125826) do
     t.integer  "company_profile_id"
   end
 
+  create_table "schools", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "search_positions", force: true do |t|
+    t.integer  "location_id"
+    t.integer  "industry_id"
+    t.integer  "job_function_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "searches", force: true do |t|
     t.string   "school_year"
     t.string   "major"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "expected_graduation"
-    t.string   "school"
+    t.integer  "school_id"
+    t.integer  "location_id"
   end
 
   create_table "skills", force: true do |t|
@@ -173,11 +207,11 @@ ActiveRecord::Schema.define(version: 20150122125826) do
   create_table "student_profiles", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "school"
+    t.integer  "school_id"
     t.string   "expected_graduation"
     t.string   "school_year"
     t.string   "last_completed_degree"
-    t.string   "residential_address"
+    t.integer  "location_id"
     t.string   "major"
     t.text     "brief_summary"
     t.string   "image"

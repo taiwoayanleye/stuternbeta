@@ -152,13 +152,13 @@ column:
 
 Others:
 Add company_profile_id_to_job_applications
-[ rails generate migration AddCompanyProfileIdToJobApplications company_profile_id ]
+[ rails generate migration AddCompanyProfileIdToJobApplications company_profile_id:integer ]
 
 Add student_profile_id_to_job_applications
-[ rails generate migration AddStudentProfileIdToJobApplications student_profile_id ]
+[ rails generate migration AddStudentProfileIdToJobApplications student_profile_id:intger ]
 
 Add job_posting_id_to_job_applications
-[ rails generate migration AddJobPostingIdToJobApplications job_posting_id ]
+[ rails generate migration AddJobPostingIdToJobApplications job_posting_id:integer ]
 
 Add cover_leter_to_job_applications
 [ rails generate migration AddCoverLetterToJobApplications cover_letter:string ]
@@ -168,3 +168,50 @@ Add hire or fire button for employers
 
 16
 Set stutern.com 
+
+17
+Add location model as association with students' profile
+[ rails generate model location name:string]
+
+
+18
+Add search_position controller
+[ rails g model search_postions location_id:integer industry_id:integer function_id:integer ]
+
+19
+Add job_function_to_job_postings
+[ rails g migration AddJobFunctionToJobPostings job_function_id:integer]
+
+20
+Change company_type_to_industry_id_in_company_profiles
+[ rails g migration change_company_type_in_company_profiles ]
+def change
+	rename_column :company_profiles, :company_type, :industry_id
+end
+
+21
+Change industry_id_format_in_company_profiles
+[ rails g migration change_industry_id_format_in_company_profiles ]
+def up
+	change_column :company_profiles, :industry_id, :integer
+end
+def down
+	change_column :company_profiles, :company_type, :string
+end
+
+23
+csv files
+locations.csv
+schools.csv
+industries.csv
+job_functions.csv
+
+24
+Add model
+Industry model
+[ rails g model job_function name]
+
+25
+Add model
+Function model
+[ rails g model industry name]

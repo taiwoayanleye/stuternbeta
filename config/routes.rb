@@ -1,29 +1,20 @@
 Rails.application.routes.draw do
-
-  get 'blog/index'
-
   resources :job_applications
-
   resources :saved_student_profiles
-
   resources :saved_job_postings
-
   resources :searches
+  resources :search_positions
 
   #Website root page
-  # root 'blog#index'
-  root 'job_postings#search'
+  # root 'job_postings#search'
+  root 'search_positions#new'
   
   #RailsAdmin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  # devise_for :users
-  # # devise_for :users
-
   #Devise routes
   devise_for :users, :controllers => {:registrations => "registrations"}, 
                       :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  #devise_for :users, :controllers => {:users => "users"}
   
   #Student resources
   resources :skills
@@ -137,5 +128,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  mount Monologue::Engine, at: '/idea'
+  # mount Monologue::Engine, at: '/idea'
 end

@@ -8,6 +8,14 @@ class CompanyProfile < ActiveRecord::Base
   has_many :job_applications
   has_many :offers, class_name: "JobApplication", foreign_key: "company_profile_id"
   has_many :office_photos
+  belongs_to :location
+  belongs_to :industry
+  # has_many :shortlistings
+  has_many :student_profiles, :through => :shortlistings
+  # has_many :friendships
+  # has_many :friends, :through => friendships
+  
+  # has_many :shortlist_students
   # , :inverse_of => :company_profile, :dependent => :destroy
   # enable nested attributes for office_photos through company_profile class
   accepts_nested_attributes_for :office_photos
@@ -26,12 +34,12 @@ class CompanyProfile < ActiveRecord::Base
             :length => { :minimum => 1,
                          :message => "This field cannot be empty" },
                          :on => :update
-  validates :location,
-            :format => { :with => /\A[a-zA-Z\,\.\- ]*\z/,
-                         :message => "Numbers and symbols are not allowed." },
-            :length => { :minimum => 1,
-                         :message => "This field cannot be empty" },
-                         :on => :update
+  # validates :location,
+  #           :format => { :with => /\A[a-zA-Z\,\.\- ]*\z/,
+  #                        :message => "Numbers and symbols are not allowed." },
+  #           :length => { :minimum => 1,
+  #                        :message => "This field cannot be empty" },
+  #                        :on => :update
   validates :description,
             :length => { :maximum => 300,
                          :message => "Over 300 characters" }

@@ -33,13 +33,13 @@ class StuCertificationsController < ApplicationController
 
   # GET /stu_interests/1/edit
   def edit
-    @stu_certification = StuCertification.find(params[:id])
+    @stu_certification = current_user.StuCertification.find(params[:id])
   end
 
   #POST /stu_interests/new
   #POST /stu_interests/new.json
   def create
-    @stu_certification = StuCertification.new(stu_certification_params)
+    @stu_certification = current_user.StuCertification.new(stu_certification_params)
     @stu_certification.user_id = current_user.id
     @stu_certification.student_profile_id = current_user.profileable_id
     if @stu_certification.save
@@ -51,7 +51,7 @@ class StuCertificationsController < ApplicationController
 
   #PATCH/PUT /stu_certifications/1.json
   def update
-    @stu_certification = StuCertification.find(params[:id])
+    @stu_certification = current_user.StuCertification.find(params[:id])
 
     respond_to do |format|
       if @stu_certification.update_attributes(stu_certification_params)
@@ -65,7 +65,7 @@ class StuCertificationsController < ApplicationController
   end
 
   def destroy
-    @stu_certification = StuCertification.find(params[:id])
+    @stu_certification = current_user.StuCertification.find(params[:id])
     @stu_certification.destroy
 
     respond_to do |format|
@@ -77,7 +77,7 @@ class StuCertificationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stu_certification
-      @stu_certification = StuCertification.find(params[:id])
+      @stu_certification = current_user.StuCertification.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
