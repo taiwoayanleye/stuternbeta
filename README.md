@@ -172,3 +172,8 @@ Set stutern.com
 17
 Add location model as association with students' profile
 [ rails generate model location name:string]
+
+
+18
+Add search_position controller
+[ rails g model search_postions location_id:integer industry_id:integer function_id:integer ]

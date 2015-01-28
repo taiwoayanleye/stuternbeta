@@ -1,31 +1,21 @@
 Rails.application.routes.draw do
 
   resources :shortlistings
-
-  get 'blog/index'
-
   resources :job_applications
-
   resources :saved_student_profiles
-
   resources :saved_job_postings
-
   resources :searches
+  resources :search_positions
 
   #Website root page
-  # root 'blog#index'
   root 'job_postings#search'
   
   #RailsAdmin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  # devise_for :users
-  # # devise_for :users
-
   #Devise routes
   devise_for :users, :controllers => {:registrations => "registrations"}, 
                       :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  #devise_for :users, :controllers => {:users => "users"}
   
   #Student resources
   resources :skills
