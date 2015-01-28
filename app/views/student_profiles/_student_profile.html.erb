@@ -40,9 +40,9 @@
           </div>
         </div>
       </div>
-        <!-- <div> -->
-          <%= link_to "ShortList Student", shortlistings_path(:student_profile_id), :method  => :post %>
-        <!-- </div> -->
+        <div>
+          <%= link_to "ShortList Student", shortlistings_path(:student_profile_id => student_profile), :method  => :post %>
+        </div>
   <% end %>
   </div>
   <% if (user_signed_in?) %>

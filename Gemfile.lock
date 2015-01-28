@@ -36,6 +36,9 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.9)
+    best_in_place (3.0.3)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -321,6 +324,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  best_in_place (~> 3.0.1)
   better_errors
   binding_of_caller
   bower-rails (~> 0.9.1)
@@ -336,6 +340,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   kaminari
   mandrill-api
   mandrill_mailer
