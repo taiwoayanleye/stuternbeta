@@ -11,6 +11,8 @@ class CompanyProfile < ActiveRecord::Base
   belongs_to :location
   has_many :shortlistings
   has_many :student_profiles, :through => :shortlistings
+  has_many :friendships
+  has_many :friends, :through => friendships
   
   # has_many :shortlist_students
   # , :inverse_of => :company_profile, :dependent => :destroy
