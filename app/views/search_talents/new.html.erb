@@ -1,0 +1,50 @@
+<div class="site-content">
+  <div class="row" style="max-width: 30em;">
+    <div class="all">
+
+      <div class="large-12 small-12 columns">
+          <div class="welcome">
+            <div class="row">
+              <div class="large-12 medium-12 small-12 columns">
+                <h2>Search Talent</h2>
+              </div><hr>
+            </div>
+          </div>
+      </div>
+
+    <%= simple_form_for @search_talent do |f| %>
+      <div class="field">
+        <% @years = ['First Year', 'Second Year', 'Third Year', 'Fourth Year', 'Final Year'] %>
+          <%= f.input :school_year, collection: @years %><br />
+      </div>
+      <div class="field">
+        <%= f.input :major %><br />
+<!--          <% f.collection_select :major, StudentProfile.order(:major), :id, :major, :include_blank => true %> -->
+      </div>
+      <div>
+        <%= f.input :expected_graduation, collection: 2015..2020 
+        # , :collection => StudentProfile.order(:expected_graduation), :include_blank => true, placeholder: "GRAD", laebl: false 
+        %><br />
+<!--        <% f.collection_select :expected_graduation, StudentProfile.order(:expected_graduation), :id, :expected_graduation, :include_blank => true %> -->
+      </div>
+      <div>
+        <%= f.input :school_id, collection: School.order(:name) %><br />
+      </div>
+      <div>
+        <%= f.input :location_id, collection: Location.order(:name) %><br />
+      </div>
+      
+      <div class="large-12 medium-12 small-12 columns">
+        <a><%= submit_tag 'Search' , class:"button radius large-12 small-12 medium-12" %></a>
+      </div>
+
+<!--       <div class="large-12 medium-12 small-12 columns">
+        <a><%= submit_tag 'Save Search', class:"button radius large-12 small-12 medium-12", :name => 'save_search' %></a>
+      </div> -->
+
+    <% end %>
+
+
+    </div>
+  </div>
+</div>

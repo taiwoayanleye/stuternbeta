@@ -15,14 +15,13 @@ class SearchTalentsController < ApplicationController
 	end
 
 	def show
-	    @student_profiles = StudentProfile.where(params[:search])
-		@search = Search.find(params[:id]) 
-		# @search = Search.new(search_params)
+	    @student_profiles = StudentProfile.where(params[:search_talent])
+		@search_talent = SearchTalent.find(params[:id]) 
 	end
 
 private
 	def search_params
-      params.require(:search).permit(:keywords, :school_year, :major, :expected_graduation, :school_id, :location_id)
+      params.require(:search_talent).permit(:school_year, :major, :expected_graduation, :school_id, :location_id)
     end
 
     def allowed_user
