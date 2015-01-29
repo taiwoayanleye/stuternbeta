@@ -14,10 +14,10 @@
 
     <%= simple_form_for @search_position do |f| %>
       <div class="field">
-          <%= f.input :industry_id, collection: Location.order(:name) %><br />
+          <%= f.input :industry_id, collection: Industry.order(:name) %><br />
       </div>
       <div>
-        <%= f.input :job_function_id, collection: Location.order(:name)%><br />
+        <%= f.input :job_function_id, collection: JobFunction.order(:name)%><br />
       </div>
       <div>
         <%= f.input :location_id, collection: Location.order(:name) %><br />

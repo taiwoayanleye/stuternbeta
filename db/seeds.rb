@@ -31,13 +31,14 @@ CSV.foreach(Rails.root.join("job_functions.csv"), headers: true) do |row|
 		job_function.id = row[0]
 		job_function.name = row[1]
 	end
+end
 puts "...job functions seeded"
 
-puts"Importing industries..."
+puts "Importing industries..."
 CSV.foreach(Rails.root.join("industries.csv"), headers: true) do |row|
 	Industry.create! do |industry|
 		industry.id = row[0]
 		industry.name = row[1]
 	end
-end
-puts"...industries seeded"
+end+
+puts "...industries seeded"

@@ -11,7 +11,7 @@ class CompanyProfile < ActiveRecord::Base
   belongs_to :location
   belongs_to :industry
   # has_many :shortlistings
-  # has_many :student_profiles, :through => :shortlistings
+  has_many :student_profiles, :through => :shortlistings
   # has_many :friendships
   # has_many :friends, :through => friendships
   

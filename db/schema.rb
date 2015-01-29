@@ -29,13 +29,6 @@ ActiveRecord::Schema.define(version: 20150128164018) do
     t.integer  "founded"
   end
 
-  create_table "friendships", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "job_applications", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -110,17 +103,6 @@ ActiveRecord::Schema.define(version: 20150128164018) do
     t.datetime "updated_at"
   end
 
-  create_table "relationships", force: true do |t|
-    t.integer  "follower_id"
-    t.integer  "followed_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
-
   create_table "saved_job_postings", force: true do |t|
     t.string   "position_text"
     t.string   "description_text"
@@ -162,14 +144,6 @@ ActiveRecord::Schema.define(version: 20150128164018) do
     t.string   "expected_graduation"
     t.integer  "school_id"
     t.integer  "location_id"
-  end
-
-  create_table "shortlistings", force: true do |t|
-    t.integer  "company_profile_id"
-    t.integer  "student_profile_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "skills", force: true do |t|
