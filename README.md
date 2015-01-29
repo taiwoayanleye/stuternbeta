@@ -207,6 +207,11 @@ industries.csv
 job_functions.csv
 
 24
-Add models
+Add model
 Industry model
+[ rails g model job_function name]
+
+25
+Add model
 Function model
+[ rails g model industry name]

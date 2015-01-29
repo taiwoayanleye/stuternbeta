@@ -88,8 +88,8 @@
                         <div class ='company_type'>
                           <p>Sector</p>
                           <a class = 'fact_a_content'>
-                            <% if !@company_profile.company_type.nil? %>
-                              <%= @company_profile.company_type %>
+                            <% if !@company_profile.industry.name.nil? %>
+                              <%= @company_profile.industry.name %>
                             <% else %>
                               <i>?</i>
                             <% end %>

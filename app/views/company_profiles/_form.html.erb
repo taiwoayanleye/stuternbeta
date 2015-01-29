@@ -44,8 +44,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :company_type %><br>
-    <%= f.text_field :company_type %>
+    <%= f.input :industry_id, collection: Industry.order(:name) %><br />
   </div>
   <div class="field">
     <%= f.label :number_of_employees %><br>

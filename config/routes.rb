@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :search_positions
 
   #Website root page
-  root 'job_postings#search'
+  # root 'job_postings#search'
+  root 'search_positions#new'
   
   #RailsAdmin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
