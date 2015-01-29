@@ -1,0 +1,2 @@
+module SearchTalentsHelper
+end

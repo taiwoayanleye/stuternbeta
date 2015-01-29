@@ -13,7 +13,7 @@ class StudentProfile < ActiveRecord::Base
 	belongs_to :school
 	belongs_to :location
 	# has_many :shortlistings
-	has_many :company_profiles, :through => :shortlistings
+	# has_many :company_profiles, :through => :shortlistings
 
 	# has_many :job_entries, class_name: "JobApplication", foreign_key: "job_hunter_id"
 

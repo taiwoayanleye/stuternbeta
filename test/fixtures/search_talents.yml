@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school_year: MyString
+  major: MyString
+  expected_graduation: MyString
+  school_id: 1
+  location_id: 1
+
+two:
+  school_year: MyString
+  major: MyString
+  expected_graduation: MyString
+  school_id: 1
+  location_id: 1

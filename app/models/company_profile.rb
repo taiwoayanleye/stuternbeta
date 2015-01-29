@@ -11,7 +11,7 @@ class CompanyProfile < ActiveRecord::Base
   belongs_to :location
   belongs_to :industry
   # has_many :shortlistings
-  has_many :student_profiles, :through => :shortlistings
+  # has_many :student_profiles, :through => :shortlistings
   # has_many :friendships
   # has_many :friends, :through => friendships
   
@@ -28,7 +28,8 @@ class CompanyProfile < ActiveRecord::Base
   paginates_per 12
 
   # VALIDATIONS HERE
-  validates :company_name, :company_type,
+  validates :company_name, 
+  # :company_type,
             :format => { :with => /\A[a-zA-Z\'\-\,\!\.\&\(\)\@\#\$\%\" ]*\z/,
                          :message => "Numbers are not allowed." },
             :length => { :minimum => 1,

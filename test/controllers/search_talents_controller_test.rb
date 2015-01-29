@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SearchTest < ActiveSupport::TestCase
+class SearchTalentsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
