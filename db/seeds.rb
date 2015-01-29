@@ -24,3 +24,20 @@ CSV.foreach(Rails.root.join("locations.csv"), headers: true) do |row|
 	end
 end
 puts "...locations seeded"
+
+puts "Importing job functions..."
+CSV.foreach(Rails.root.join("job_functions.csv"), headers: true) do |row|
+	JobFunction.create! do |job_function|
+		job_function.id = row[0]
+		job_function.name = row[1]
+	end
+puts "...job functions seeded"
+
+puts"Importing industries..."
+CSV.foreach(Rails.root.join("industries.csv"), headers: true) do |row|
+	Industry.create! do |industry|
+		industry.id = row[0]
+		industry.name = row[1]
+	end
+end
+puts"...industries seeded"

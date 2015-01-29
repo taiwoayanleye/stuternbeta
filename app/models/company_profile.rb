@@ -9,6 +9,7 @@ class CompanyProfile < ActiveRecord::Base
   has_many :offers, class_name: "JobApplication", foreign_key: "company_profile_id"
   has_many :office_photos
   belongs_to :location
+  belongs_to :industry
   # has_many :shortlistings
   # has_many :student_profiles, :through => :shortlistings
   # has_many :friendships
