@@ -20,7 +20,7 @@ class SearchTalentsController < ApplicationController
 	end
 
 private
-	def search_params
+	def search_talent_params
       params.require(:search_talent).permit(:school_year, :major, :expected_graduation, :school_id, :location_id)
     end
 

@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
       if !@user.profile.verified? === true
         edit_company_profile_path(:id)
       else
-        new_search_url
+        new_search_talent_url
         # search_student_profiles_url
       end
     end
