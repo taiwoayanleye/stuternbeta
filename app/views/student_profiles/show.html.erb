@@ -29,7 +29,10 @@
                 <div class='intern_name'>
                   <div class="row">
                      <div class="large-12 small-12 columns">
-                      <p><%= @student_profile.first_name %> <%= @student_profile.last_name %></p>
+                      <p>
+                        <%= best_in_place @student_profile, :first_name, :as => :input %> 
+                        <%= best_in_place @student_profile, :last_name, :as => :input, :nil => "Click me to add content" %>
+                        </p>
                       <% if (@student_profile.first_name.nil? && @student_profile.last_name.nil?) %>
                       <% end %>
                      </div>
@@ -114,7 +117,7 @@
                   <!-- brief_content -->
                   <% if !@student_profile.brief_summary.nil? %>
                     <div class="brief_content">
-                      <%= @student_profile.brief_summary %>
+                      <%= best_in_place @student_profile, :brief_summary, :as => :textarea %>
                     </div>
                   <% else %>
                     <p>?</p>
